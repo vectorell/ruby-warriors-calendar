@@ -1,0 +1,29 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+.calendar {
+    display: grid;
+    grid-template-columns: repeat(7, var(--column-size));
+    grid-template-rows: repeat(7, var(--row-size)) ;
+}
+
+
+
+.calendar__weekdaytitles__container {
+    border: 1px dashed blue;
+}
+
+.calendar__weekdaytitles__container {
+    border: 1px dashed blue;
+}
+
+.calendar__date__containers {
+    border: 1px dashed red;
+}
+
+.date__container {
+    border: 1px dotted grey;
+}
