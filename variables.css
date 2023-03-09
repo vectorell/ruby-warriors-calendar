@@ -8,4 +8,9 @@
     --color-grey: #868686;
     --color-grey-disabled: #ebebeb;
 
+    /* SKUGGOR */
+    --shadow-type-1: 1px 13px 24px 0px rgba(66, 68, 90, 1);
+        /* -webkit-box-shadow: 1px 13px 24px 0px rgba(66, 68, 90, 1);
+        -moz-box-shadow: 1px 13px 24px 0px rgba(66, 68, 90, 1); */
+    
 }
