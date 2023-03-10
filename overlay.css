@@ -1,0 +1,26 @@
+.overlay {
+	position: absolute;
+	left: 0px;
+	top: 0px;
+	background-color: rgba(0, 0, 0, 0.5);
+	width: 100vw;
+	height: 100vh;
+	padding: 3em;
+
+}
+.overlay > * {
+	background-color: rgb(34, 36, 47);
+	padding: 1em;
+	border-radius: 0.5em;
+}
+
+.content-form {
+	display: flex;
+	flex-direction: column;
+	gap: 1em;
+}
+
+.content-form > * {
+	height: 3em;
+	border-radius: 0.5em;
+}
