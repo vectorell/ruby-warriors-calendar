@@ -1,6 +1,6 @@
 const button = document.querySelector('button')
 const body = document.querySelector('body')
-
+let eventArray = []
 
 button.addEventListener('click', () => {
 	console.log('Du klickade på knappen')
@@ -44,4 +44,6 @@ button.addEventListener('click', () => {
 
 	body.append(overlay)
 
-})
+	eventArray.push(content.inputHead, content.inputPlace, content.inputDate, content.inputTime, content.inputEvent)
+}) 
+console.log(eventArray)
