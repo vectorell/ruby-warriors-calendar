@@ -16,8 +16,7 @@ body {
 .calendar {
     display: grid;
     grid-template-columns: repeat(7, var(--column-size));
-    grid-template-rows: var(--row-size-half) 3em repeat(7, var(--row-size)) ;
-    /* justify-content: center; */
+    grid-template-rows: var(--row-size-half) 3em repeat(5, var(--row-size)) ;
     border: none;
     border-radius: 0.5em;
     width: fit-content;
