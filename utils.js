@@ -121,6 +121,5 @@ function renderDateBoxes(month) {
     }
 }
 
-renderDateBoxes(2)
 
 renderDateBoxes(2)
