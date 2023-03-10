@@ -1,71 +1,127 @@
 <!DOCTYPE html>
-<html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css"
-    integrity="sha512-xh6O CkQoPOWDdYTDqeRdPCVd1SpvCA9XXcUnZS2FmJNp1coAFzvtCN9BmamE+4aHK8yyUHUSCcJHgXloTyT2A=="
-    crossorigin="anonymous" referrerpolicy="no-referrer"/>
+<html lang="sv_SE">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title> Ruby Warriors Kalender </title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.3.0/css/all.min.css" integrity="sha512-SzlrxWUlpfuzQ+pcUCosxcglQRNAq/DZjVsC0lE40xsADsfeQoEypE+enwcOiGjk/bSuGGKHEyjSoQ1zVisanQ==" crossorigin="anonymous" referrerpolicy="no-referrer" />
     <link rel="stylesheet" href="style.css">
-    <title>Calendar with Events</title>
-  </head>
-  <body>
+</head>
+<body>
+
+    <!-- Container: Yttersta huvud-containern som allting ligger i -->
     <div class="container">
-      <div class="left">
-        <div class="calendar">
-          <div class="month">
-            <i class="fas fa-angle-left prev"></i>
-            <div class="date">Mars 2023</div>
-            <i class="fas fa-angle-right next"></i>
-          </div>
-          <div class="weekdays">
-            <div>Sun</div>
-            <div>Mon</div>
-            <div>Tue</div>
-            <div>Wed</div>
-            <div>Thu</div>
-            <div>Fri</div>
-            <div>Sat</div>
-          </div>
-          <div class="days"></div>
-          <div class="goto-today">
-            
-            <button class="today-btn">Today</button>
-          </div>
+    <div class="left">
+    <div class="calendar">
+
+        <!-- Container: Månad och år -->
+        <div class="month">
+          <i class="fas fa-angle-left prev "></i>
+          <div class="date">mars 2023</div>
+          <i class=" fas fa-angle-right next"></i>
         </div>
-      </div>
-      <div class="right">
-        <div class="today-date">
-          <div class="event-day">wed</div>
-          <div class="event-date">12th december 2022</div>
+
+        <!-- Container: veckodagarnas titlar -->
+        <div class="weekdays">
+            <div>MÅNDAG</div>
+            <div class="weekday__container title-tuesday"> <span class="weekday-paragraph"> TISDAG </span> </div>
+            <div class="weekday__container title-wednesday"> <span class="weekday-paragraph"> ONSDAG </span></div>
+            <div class="weekday__container title-thursday"> <span class="weekday-paragraph"> TORSDAG </span></div>
+            <div class="weekday__container title-friday"> <span class="weekday-paragraph"> FREDAG </span></div>
+            <div class="weekday__container title-saturday"> <span class="weekday-paragraph"> LÖRDAG </span></div>
+            <div class="weekday__container title-sunday"> <span class="weekday-paragraph"> SÖNDAG </span></div>
         </div>
-        <div class="events"></div>
-        <div class="add-event-wrapper">
-          <div class="add-event-header">
-            <div class="title">Add Event</div>
-            <i class="fas fa-times close"></i>
+
+        <div class="days">
+        <!-- datumboxarna -->
+            <div class="date__container date1"> <span class="weekday-number-text"> 1 </span> </div>
+            <div class="date__container date2"> <span class="weekday-number-text"> 2 </span> </div>
+            <div class="date__container date3"> <span class="weekday-number-text"> 3 </span> </div>
+            <div class="date__container date4"> <span class="weekday-number-text"> 4 </span> </div>
+            <div class="date__container date5"> <span class="weekday-number-text"> 5 </span> </div>
+            <div class="date__container date6"> <span class="weekday-number-text"> 6 </span> </div>
+            <div class="date__container date7"> <span class="weekday-number-text"> 7 </span> </div>
+            <div class="date__container date8"> <span class="weekday-number-text"> 8 </span> </div>
+            <div class="date__container date9"> <span class="weekday-number-text"> 9 </span> </div>
+            <div class="date__container date10"> <span class="weekday-number-text"> 10 </span> </div>
+            <div class="date__container date11"> <span class="weekday-number-text"> 11 </span> </div>
+            <div class="date__container date12"> <span class="weekday-number-text"> 12 </span> </div>
+            <div class="date__container date13"> <span class="weekday-number-text"> 13 </span> </div>
+            <div class="date__container date14"> <span class="weekday-number-text"> 14 </span> </div>
+            <div class="date__container date15"> <span class="weekday-number-text"> 15 </span> </div>
+            <div class="date__container date16"> <span class="weekday-number-text"> 16 </span> </div>
+            <div class="date__container date17"> <span class="weekday-number-text"> 17 </span> </div>
+            <div class="date__container date18"> <span class="weekday-number-text"> 18 </span> </div>
+            <div class="date__container date19"> <span class="weekday-number-text"> 19 </span> </div>
+            <div class="date__container date20"> <span class="weekday-number-text"> 20 </span> </div>
+            <div class="date__container date21"> <span class="weekday-number-text"> 21 </span> </div>
+            <div class="date__container date22"> <span class="weekday-number-text"> 22 </span> </div>
+            <div class="date__container date23"> <span class="weekday-number-text"> 23 </span> </div>
+            <div class="date__container date24"> <span class="weekday-number-text"> 24 </span> </div>
+            <div class="date__container date25"> <span class="weekday-number-text"> 25 </span> </div>
+            <div class="date__container date26"> <span class="weekday-number-text"> 26 </span> </div>
+            <div class="date__container date27"> <span class="weekday-number-text"> 27 </span> </div>
+            <div class="date__container date28"> <span class="weekday-number-text"> 28 </span> </div>
+            <div class="date__container date29"> <span class="weekday-number-text"> 29 </span> </div>
+            <div class="date__container date30"> <span class="weekday-number-text"> 30 </span> </div>
+            <div class="date__container date31"> <span class="weekday-number-text"> 31 </span> </div>
+            <div class="date__container date-blank">  </div>
+            <div class="date__container date-blank">  </div>
+            <div class="date__container date-blank">  </div>
+            <div class="date__container date-blank">  </div>
           </div>
-          <div class="add-event-body">
-            <div class="add-event-input">
-              <input type="text" placeholder="Event Name" class="event-name" />
-            </div>
-            <div class="add-event-input">
-              <input type="text" placeholder="Event Time From" class="event-time-from"/>
-            </div>
-            <div class="add-event-input">
-              <input type="text" placeholder="Event Time To" class="event-time-to"/>
-            </div>
-          </div>
-          <div class="add-event-footer">
-            <button class="add-event-btn">Add Event</button>
-          </div>
-        </div>
-      </div>
-      <button class="add-event">
-        <i class="fas fa-plus"></i>
-      </button>
     </div>
-    <script src="script.js"></script>
-  </body>
+    
+          <div class="goto-today">
+          <div class="goto">
+            <input type="text" placeholder="mm/yyyy" class="date-input" />
+            <button class="goto-btn">Go</button>
+          </div>
+        </div>
+    </div>
+    <!-- right vy som handlar om event/händelser under dagen -->
+
+    <div class="right">
+      <div class="today-date">
+        <div class="event-day">wed</div>
+        <div class="event-date">12th december 2022</div>
+      </div>
+      <div class="events"></div>
+      <div class="add-event-wrapper">
+        <div class="add-event-header">
+          <div class="title">Add Event</div>
+          <i class="fas fa-times close"></i>
+        </div>
+        <div class="add-event-body">
+          <div class="add-event-input">
+            <input type="text" placeholder="Event Name" class="event-name" />
+          </div>
+          <div class="add-event-input">
+            <input
+              type="text"
+              placeholder="Event Time From"
+              class="event-time-from"
+            />
+          </div>
+          <div class="add-event-input">
+            <input
+              type="text"
+              placeholder="Event Time To"
+              class="event-time-to"
+            />
+          </div>
+        </div>
+        <div class="add-event-footer">
+          <button class="add-event-btn">Add Event</button>
+        </div>
+      </div>
+    </div>
+    <button class="add-event">
+      <i class="fas fa-plus"></i>
+    </button>
+  </div>
+    </div>
+</body>
 </html>
+
