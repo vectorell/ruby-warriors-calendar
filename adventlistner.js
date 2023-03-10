@@ -16,3 +16,4 @@ yearDropdown.addEventListener('change', function() {
   // Uppdatera kalendern baserat på det valda året
 
 });
+
