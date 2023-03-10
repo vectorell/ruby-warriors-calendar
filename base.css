@@ -34,6 +34,11 @@ body {
     align-content: center;
 }
 
+.right-arrow {
+    font-size: 4em;
+}
+
+
 /* Containrar för veckodagarnas text */
 .calendar__weekdaytitles__container {
     grid-column-start: 0;
