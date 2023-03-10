@@ -33,10 +33,22 @@ body {
     display: grid;
     align-content: center;
 }
+#year-dropdown {
+    width: 7em; 
+    padding: 0.3em; 
+    font-size: 25px;
+    border: 1px solid grey; 
 
-.right-arrow {
-    font-size: 4em;
 }
+
+.left-arrow, .right-arrow {
+    border: none;
+    cursor: pointer;
+    appearance: none;
+    background-color: inherit; 
+
+}
+
 
 
 /* Containrar för veckodagarnas text */

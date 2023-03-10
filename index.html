@@ -15,10 +15,17 @@
 
         <!-- Container: Månad och år -->
         <div class="calendar__month-year__container">
-        <img src="image/left-arrow.png" alt="left-arrow" style="width:20px; height:20px;"> 
-        <h1>MÅNAD 2023</h1>
-        <img src="image/right-arrow.png" alt="right-arrow" style="width:20px;height:20px;" >
-        
+        <button class="left-arrow">     
+            <img src="image/left-arrow.png" alt="left-arrow" style="width:20px; height:20px;"></button>
+        <h1>MÅNAD</h1> 
+        <select id="year-dropdown">
+            <option value="2023">2023</option>
+            <option value="2024">2024</option>
+            <option value="2025">2025</option>
+        </select>
+        <button class="right-arrow">
+            <img src="image/right-arrow.png" alt="right-arrow" style="width:20px;height:20px;" >
+        </button>
         </div>
 
         <!-- Container: veckodagarnas titlar -->
