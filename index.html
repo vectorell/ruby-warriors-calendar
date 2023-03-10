@@ -7,6 +7,7 @@
     <title> Ruby Warriors Kalender </title>
     <link rel="stylesheet" href="base.css">
     <link rel="stylesheet" href="variables.css">
+    <script src="/utils.js" defer></script>
 </head>
 <body>
 
@@ -22,49 +23,45 @@
         <div class="calendar__weekdaytitles__container">
             <div class="weekday__container title-monday"> <span class="weekday-paragraph"> MÅNDAG </span> </div>
             <div class="weekday__container title-tuesday"> <span class="weekday-paragraph"> TISDAG </span> </div>
-            <div class="weekday__container title-wednesday"> <span class="weekday-paragraph"> ONSDAG </span></div>
-            <div class="weekday__container title-thursday"> <span class="weekday-paragraph"> TORSDAG </span></div>
-            <div class="weekday__container title-friday"> <span class="weekday-paragraph"> FREDAG </span></div>
-            <div class="weekday__container title-saturday"> <span class="weekday-paragraph"> LÖRDAG </span></div>
-            <div class="weekday__container title-sunday"> <span class="weekday-paragraph"> SÖNDAG </span></div>
+            <div class="weekday__container title-wednesday"> <span class="weekday-paragraph"> ONSDAG </span> </div>
+            <div class="weekday__container title-thursday"> <span class="weekday-paragraph"> TORSDAG </span> </div>
+            <div class="weekday__container title-friday"> <span class="weekday-paragraph"> FREDAG </span> </div>
+            <div class="weekday__container title-saturday"> <span class="weekday-paragraph"> LÖRDAG </span> </div>
+            <div class="weekday__container title-sunday"> <span class="weekday-paragraph"> SÖNDAG </span> </div>
         </div>
 
         <!-- datumboxarna -->
-            <div class="date__container date1"> <span class="weekday-number-text"> 1 </span> </div>
-            <div class="date__container date2"> <span class="weekday-number-text"> 2 </span> </div>
-            <div class="date__container date3"> <span class="weekday-number-text"> 3 </span> </div>
-            <div class="date__container date4"> <span class="weekday-number-text"> 4 </span> </div>
-            <div class="date__container date5"> <span class="weekday-number-text"> 5 </span> </div>
-            <div class="date__container date6"> <span class="weekday-number-text"> 6 </span> </div>
-            <div class="date__container date7"> <span class="weekday-number-text"> 7 </span> </div>
-            <div class="date__container date8"> <span class="weekday-number-text"> 8 </span> </div>
-            <div class="date__container date9"> <span class="weekday-number-text"> 9 </span> </div>
-            <div class="date__container date10"> <span class="weekday-number-text"> 10 </span> </div>
-            <div class="date__container date11"> <span class="weekday-number-text"> 11 </span> </div>
-            <div class="date__container date12"> <span class="weekday-number-text"> 12 </span> </div>
-            <div class="date__container date13"> <span class="weekday-number-text"> 13 </span> </div>
-            <div class="date__container date14"> <span class="weekday-number-text"> 14 </span> </div>
-            <div class="date__container date15"> <span class="weekday-number-text"> 15 </span> </div>
-            <div class="date__container date16"> <span class="weekday-number-text"> 16 </span> </div>
-            <div class="date__container date17"> <span class="weekday-number-text"> 17 </span> </div>
-            <div class="date__container date18"> <span class="weekday-number-text"> 18 </span> </div>
-            <div class="date__container date19"> <span class="weekday-number-text"> 19 </span> </div>
-            <div class="date__container date20"> <span class="weekday-number-text"> 20 </span> </div>
-            <div class="date__container date21"> <span class="weekday-number-text"> 21 </span> </div>
-            <div class="date__container date22"> <span class="weekday-number-text"> 22 </span> </div>
-            <div class="date__container date23"> <span class="weekday-number-text"> 23 </span> </div>
-            <div class="date__container date24"> <span class="weekday-number-text"> 24 </span> </div>
-            <div class="date__container date25"> <span class="weekday-number-text"> 25 </span> </div>
-            <div class="date__container date26"> <span class="weekday-number-text"> 26 </span> </div>
-            <div class="date__container date27"> <span class="weekday-number-text"> 27 </span> </div>
-            <div class="date__container date28"> <span class="weekday-number-text"> 28 </span> </div>
-            <div class="date__container date29"> <span class="weekday-number-text"> 29 </span> </div>
-            <div class="date__container date30"> <span class="weekday-number-text"> 30 </span> </div>
-            <div class="date__container date31"> <span class="weekday-number-text"> 31 </span> </div>
-            <div class="date__container date-blank">  </div>
-            <div class="date__container date-blank">  </div>
-            <div class="date__container date-blank">  </div>
-            <div class="date__container date-blank">  </div>
+            <div class="date__container date1" style="visibility:hidden;"> <span class="weekday-number-text">  </span> </div>
+            <div class="date__container date2" style="visibility:hidden;"> <span class="weekday-number-text">  </span> </div>
+            <div class="date__container date3" style="visibility:hidden;"> <span class="weekday-number-text">  </span> </div>
+            <div class="date__container date4" style="visibility:hidden;"> <span class="weekday-number-text">  </span> </div>
+            <div class="date__container date5" style="visibility:hidden;"> <span class="weekday-number-text">  </span> </div>
+            <div class="date__container date6" style="visibility:hidden;"> <span class="weekday-number-text">  </span> </div>
+            <div class="date__container date7" style="visibility:hidden;"> <span class="weekday-number-text">  </span> </div>
+            <div class="date__container date8" style="visibility:hidden;"> <span class="weekday-number-text">  </span> </div>
+            <div class="date__container date9" style="visibility:hidden;"> <span class="weekday-number-text">  </span> </div>
+            <div class="date__container date10" style="visibility:hidden;"> <span class="weekday-number-text">  </span> </div>
+            <div class="date__container date11" style="visibility:hidden;"> <span class="weekday-number-text">  </span> </div>
+            <div class="date__container date12" style="visibility:hidden;"> <span class="weekday-number-text">  </span> </div>
+            <div class="date__container date13" style="visibility:hidden;"> <span class="weekday-number-text">  </span> </div>
+            <div class="date__container date14" style="visibility:hidden;"> <span class="weekday-number-text">  </span> </div>
+            <div class="date__container date15" style="visibility:hidden;"> <span class="weekday-number-text">  </span> </div>
+            <div class="date__container date16" style="visibility:hidden;"> <span class="weekday-number-text">  </span> </div>
+            <div class="date__container date17" style="visibility:hidden;"> <span class="weekday-number-text">  </span> </div>
+            <div class="date__container date18" style="visibility:hidden;"> <span class="weekday-number-text">  </span> </div>
+            <div class="date__container date19" style="visibility:hidden;"> <span class="weekday-number-text">  </span> </div>
+            <div class="date__container date20" style="visibility:hidden;"> <span class="weekday-number-text">  </span> </div>
+            <div class="date__container date21" style="visibility:hidden;"> <span class="weekday-number-text">  </span> </div>
+            <div class="date__container date22" style="visibility:hidden;"> <span class="weekday-number-text">  </span> </div>
+            <div class="date__container date23" style="visibility:hidden;"> <span class="weekday-number-text">  </span> </div>
+            <div class="date__container date24" style="visibility:hidden;"> <span class="weekday-number-text">  </span> </div>
+            <div class="date__container date25" style="visibility:hidden;"> <span class="weekday-number-text">  </span> </div>
+            <div class="date__container date26" style="visibility:hidden;"> <span class="weekday-number-text">  </span> </div>
+            <div class="date__container date27" style="visibility:hidden;"> <span class="weekday-number-text">  </span> </div>
+            <div class="date__container date28" style="visibility:hidden;"> <span class="weekday-number-text">  </span> </div>
+            <div class="date__container date29" style="visibility:hidden;"> <span class="weekday-number-text">  </span> </div>
+            <div class="date__container date30" style="visibility:hidden;"> <span class="weekday-number-text">  </span> </div>
+            <div class="date__container date31" style="visibility:hidden;"> <span class="weekday-number-text">  </span> </div>
     </section>
     
 </body>
