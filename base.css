@@ -55,11 +55,24 @@ h1 {
     border: none;
     cursor: pointer;
     appearance: none;
-    background-color: inherit; 
+    background-color: inherit;
+    padding: 0.5em; 
+    border-radius: 2em;
+    transition: 0.3s;
 
 }
 
+.left-arrow:hover, .right-arrow:hover {
+    transition: 0.3s;
+    background-color: var(--color-grey-disabled);
+    transform: scale(130%);
+}
 
+.left-arrow:active, .right-arrow:active {
+    transition: 0s;
+    background-color: var(--color-grey);
+    transform: scale(90%);
+}
 
 /* Containrar för veckodagarnas text */
 .calendar__weekdaytitles__container {
@@ -85,4 +98,11 @@ h1 {
     padding: 0.2em;
     font-size: 1.3em;
     font-weight: 600;
+}
+
+/* månadstitel */
+.month-display {
+    width:6em;
+    font-size: 2em;
+    text-align: center;
 }
