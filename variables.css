@@ -1,8 +1,8 @@
 :root {
     /* STORLEKAR */
-    --column-size: 6em;
-    --row-size: 6em;
-    --row-size-half: 3.5em;
+    --column-size: 5em;
+    --row-size: 5em;
+    --row-size-half:2.5em;
 
     /* FÄRGER */
     --color-grey: #868686;
