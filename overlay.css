@@ -12,15 +12,51 @@
 	background-color: rgb(34, 36, 47);
 	padding: 1em;
 	border-radius: 0.5em;
+	border: 1px white solid;
+	box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
 }
+	
 
 .content-form {
 	display: flex;
 	flex-direction: column;
 	gap: 1em;
+	font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+}
+
+::-webkit-input-placeholder {
+	font-family:'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+	padding-left: 1em;
+}
+
+.content-form h2 {
+	height: fit-content;
+	color: white;
 }
 
 .content-form > * {
 	height: 3em;
 	border-radius: 0.5em;
+}
+
+.button-container {
+	display: flex;
+	flex-direction: row;
+	justify-content: center;
+	gap: 1em;
+
+}
+
+.button-container button {
+	width: 8em;
+	padding: 0.5em;
+	border-radius: 1em;
+	font-family:'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+
+}
+
+.input-date, .input-time {
+	padding-left: 2em;
+	font-family:'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+	color: grey;
 }
