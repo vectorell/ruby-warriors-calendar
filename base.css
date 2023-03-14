@@ -14,10 +14,11 @@ body {
 
 /* Yttersta kalender-containern */
 .calendar {
-    background-color: #878895;
+    color: #000;
+    background-color: #ffffff;
     display: grid;
     grid-template-columns: repeat(7, var(--column-size));
-    grid-template-rows: var(--row-size-half) 3em repeat(5, var(--row-size)) ;
+    grid-template-rows: var(--row-size-half) 3em repeat(6, var(--row-size)) ;
     border: none;
     border-radius: 0.5em;
     width: fit-content;
@@ -35,11 +36,30 @@ body {
     display: flex;
 
     border-radius: 10px;
-    background-color: #373c4f;
+    background-color: #652c76;
 } 
 .left {
     width: 60%;
     padding: 20px;
+}
+
+.week-view-btn {
+    position: absolute;
+    left: 30px;
+    width: 60px;
+    height: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 16px;
+    color: #2f3038;
+    border: 2px solid #2f3038;
+    opacity: 0.5;
+    background-color: transparent;
+    cursor: pointer;
+}
+.week-view-btn:hover {
+    opacity: 1;
 }
 /* Container för månad och år ("headern") */
 .calendar__month-year__container {
@@ -55,7 +75,7 @@ body {
     width: 100%;*/
 }
 #year-dropdown {
-    width: 7em; 
+    width: 4em; 
     padding: 0.1em; 
     font-size: 25px;
     border: 1px solid grey; 
@@ -100,8 +120,27 @@ h1 {
     align-content: center;
 }
 
-.date__container {
-    border: 1px solid var(--color-grey);
+.date-boxes {
+    display: grid;
+    grid-template-columns: repeat(7, var(--column-size));
+    grid-template-rows: repeat(8, var(--row-size)) ;
+}
+
+
+/* datumboxar för föregående och nästkommande månad */
+.prev, .next {
+    background-color: #dadada;
+    border: 1px solid #c4c4c4;
+}
+.current {
+    border: 1px solid #dedede;
+    background-color: #ffffff;
+}
+
+/* datumboxar för dagens datum */
+.today {
+    background-color: #eed3f5;
+    /* border: 1px solid var(--color-grey); */
 }
 
 .date-blank {
@@ -118,7 +157,7 @@ h1 {
 
 /* månadstitel */
 .month-display {
-    width:6em;
+    width:5em;
     font-size: 2em;
     text-align: center;
 }
@@ -183,6 +222,52 @@ h1 {
 .add-event-btn:hover {
     opacity: 1;
 }
+
+ .goto-today {
+    width: 100%;
+    height: 50px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 5px;
+    padding: 0 20px;
+    margin-bottom: 20px;
+    color: #b28dbd;
+  }
+   .goto-today .goto {
+    display: flex;
+    align-items: center;
+    border-radius: 5px;
+    overflow: hidden;
+    border: 1px solid var(--primary-clr);
+  }
+   .goto-today .goto input {
+    width: 100%;
+    height: 30px;
+    outline: none;
+    border: none;
+    border-radius: 5px;
+    padding: 0 20px;
+    color: var(--primary-clr);
+    border-radius: 5px;
+  }
+   .goto-today button {
+    padding: 5px 10px;
+    border: 1px solid var(--primary-clr);
+    border-radius: 5px;
+    background-color: transparent;
+    cursor: pointer;
+    color: var(--primary-clr);
+  }
+   .goto-today button:hover {
+    color: #fff;
+    background-color: var(--primary-clr);
+  }
+   .goto-today .goto button {
+    border: none;
+    border-left: 1px solid var(--primary-clr);
+    border-radius: 0;
+  }
 @media screen and (max-width: 1000px) {
 body {
     align-items: flex-start;
@@ -224,7 +309,7 @@ body {
         }
 }
 
-@media screen and (max-width: 500px) {
+@media screen and (max-width: 299px) {
 .calendar .calendar__month-year__container {
     height: 75px;
         }
@@ -243,3 +328,4 @@ body {
     padding: 20px;
         }
 }
+
