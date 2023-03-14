@@ -1,6 +1,27 @@
+
+/** GLOBALA VARIABLER och DOM-INHÄMTNINGAR */
 const button = document.querySelector('.add-event-btn')
 const body = document.querySelector('body')
-let eventArray = []
+const rightSide = document.querySelector('.right')
+const activitiesByDate = {}
+const events = document.querySelector('.events')
+const eventDay = document.querySelector('.event-day')
+const eventDate = document.querySelector('.event-date')
+// let eventArray = []
+// const eventName = document.querySelector('.event-name')
+// const timeStamp = document.querySelector('.time-stamp')
+// const placeText = document.querySelector('.place-text')
+// const reminder = document.querySelector('.reminder-text')
+
+let daysInSelectedMonth
+const dateContainer = document.querySelectorAll('.date__container')
+const dateContainerDayNumber = document.querySelectorAll('.weekday-number-text')
+const monthDisplay = document.querySelector('.month-display')
+
+window.addEventListener('load', function() {
+		eventDate.innerText = today.todayDate + ' ' + today.todayMonth
+		eventDay.innerText = today.todayWeekday
+	})
 
 button.addEventListener('click', () => {
 	console.log('Du klickade på knappen')
@@ -19,8 +40,6 @@ button.addEventListener('click', () => {
 		buttonAddEvent: document.createElement('button'),
 		buttonCloseOverlay: document.createElement('button')
 	}
-
-
 
 	//Adderar klasser för styling
 	overlay.classList.add('overlay')
@@ -56,7 +75,7 @@ button.addEventListener('click', () => {
 	
 	overlay.append(content.contentForm)
 
-	body.append(overlay)
+	rightSide.append(overlay)
 	content.buttonAddEvent.addEventListener('click', (event) => {
 		event.preventDefault();
 		const headValue = content.inputHead.value;
@@ -64,7 +83,20 @@ button.addEventListener('click', () => {
     	const dateValue = content.inputDate.value;
     	const timeValue = content.inputTime.value;
     	const eventValue = content.inputEvent.value;
-		eventArray.push(headValue, placeValue, dateValue, timeValue, eventValue)
+
+		if(!activitiesByDate[dateValue]) {
+			activitiesByDate[dateValue] = []
+		}
+
+		activitiesByDate[dateValue].push({
+			head: headValue,
+			place: placeValue,
+			date: dateValue,
+			time: timeValue,
+			event: eventValue
+		})
+		console.log(activitiesByDate)
+	 showActivities(dateValue)
 	})
 
 	content.buttonCloseOverlay.addEventListener('click', (event) => {
@@ -73,16 +105,27 @@ button.addEventListener('click', () => {
 		overlay.remove();
 	})
 	
-	console.log(eventArray)
-}) 
-console.log(eventArray)
-/** GLOBALA VARIABLER och DOM-INHÄMTNINGAR */
-let daysInSelectedMonth
-const dateContainer = document.querySelectorAll('.date__container')
-const dateContainerDayNumber = document.querySelectorAll('.weekday-number-text')
-const monthDisplay = document.querySelector('.month-display')
 
-/**************** INHÄMTNING AV DAGENS DATUM + TID *******************/
+}) 
+
+// En funktion som ska göra så att informationen från ett event visas
+function showActivities(date) {
+	const activities = activitiesByDate[date]
+	let activitiesList = document.createElement('ul')
+	activitiesList.className = 'activities-list'
+	for (let i = 0; i < activities.length; i++) {
+		let listItem = document.createElement('li');
+		listItem.innerText = `Att göra: ${activities[i].head} Plats:  ${activities[i].place} Tid: ${activities[i].time} Kom ihåg: ${activities[i].event}`;
+		
+		activitiesList.append(listItem);
+	}
+	events.append(activitiesList)
+	console.log(activitiesList)
+}
+
+
+
+/************** INHÄMTNING AV DAGENS DATUM + TID *******************/
 // Hela dagens datum som sträng
 let currentFullDateString = Date()
 console.log(currentFullDateString)
