@@ -4,19 +4,11 @@ const buttonRightArrow = document.querySelector('.right-arrow')
 const yearDropdown = document.getElementById('#year-dropdown');
 
 buttonLeftArrow.addEventListener('click', () => {
-    if (monthIndex > 0) {
-        renderDateBoxes(--monthIndex)
-        convertMonthIndexToName(monthIndex)
-        monthDisplay.innerText = monthName
-    }
+    showCalendar(-1);
 })
 
 buttonRightArrow.addEventListener('click', () => {
-    if (monthIndex < 12) {
-        renderDateBoxes(++monthIndex)
-        convertMonthIndexToName(monthIndex)
-        monthDisplay.innerText = monthName
-    }
+    showCalendar(1);
 })
 
 // yearDropdown.addEventListener('change', function() {
