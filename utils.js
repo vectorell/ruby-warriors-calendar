@@ -1,4 +1,4 @@
-const button = document.querySelector('button')
+const button = document.querySelector('.add-event-btn')
 const body = document.querySelector('body')
 let eventArray = []
 
@@ -75,5 +75,106 @@ button.addEventListener('click', () => {
 	
 	console.log(eventArray)
 }) 
+console.log(eventArray)
+/** GLOBALA VARIABLER och DOM-INHÄMTNINGAR */
+let daysInSelectedMonth
+const dateContainer = document.querySelectorAll('.date__container')
+const dateContainerDayNumber = document.querySelectorAll('.weekday-number-text')
+const monthDisplay = document.querySelector('.month-display')
 
-		
+/**************** INHÄMTNING AV DAGENS DATUM + TID *******************/
+// Hela dagens datum som sträng
+let currentFullDateString = Date()
+console.log(currentFullDateString)
+
+// Hela dagens datum omgjort till en array
+let currentFullDateArray = currentFullDateString.split(' ')
+
+// Dagens klockslag
+let currentTimeString = currentFullDateArray[4]
+let currentTime = currentTimeString.split(':')
+
+// Dagens datum + tid, som används i funktioner etc
+let today = {
+    todayYear: currentFullDateArray[3],
+    todayMonth: currentFullDateArray[1],
+    todayWeekday: currentFullDateArray[0],
+    todayDate: currentFullDateArray[2],
+    todayHour: currentTime[0],
+    todayMinute: currentTime[1],
+    todaySecond: currentTime[2]
+}
+
+
+
+/*******************************************/
+
+
+monthArray = [
+    {name: 'JANUARI', days: 31, index: 1},
+    {name: 'FEBRUARI', days: 28, index: 2},
+    {name: 'MARS', days: 31, index: 3},
+    {name: 'APRIL', days: 30, index: 4},
+    {name: 'MAJ', days: 31, index: 5},
+    {name: 'JUNI', days: 30, index: 6},
+    {name: 'JULI', days: 31, index: 7},
+    {name: 'AUGUSTI', days: 31, index: 8},
+    {name: 'SEPTEMBER', days: 30, index: 9},
+    {name: 'OKTOBER', days: 31, index: 10},
+    {name: 'NOVEMBER', days: 30, index: 11},
+    {name: 'DECEMBER', days: 31, index: 12}
+]
+
+// FUNKTION: Returnera antal dagar för vald månad
+function howManyDaysInMonth(month) {
+    monthArray.forEach(element => {
+        if ((element.name == month) || (element.index == month)) {
+            // console.log(element.days)
+            daysInSelectedMonth = element.days
+            return daysInSelectedMonth
+        }
+    })
+}
+
+
+// FUNKTION: Grafisk rendering av datumboxar baserat på vald månad
+// (beroende av funktionen 'howManyDaysInMonth()')
+function renderDateBoxes(month) {
+    howManyDaysInMonth(month)
+    console.log(daysInSelectedMonth)
+
+    // Nollställning inför rendering
+    dateContainer.forEach(element => {
+        element.style.visibility = 'hidden'
+    })
+
+    for (let i = 0; i < daysInSelectedMonth+1; i++) {
+        dateContainer.forEach(element => {
+            if (element.classList.contains(`date${i}`)) {
+                element.style.visibility = 'visible'
+                element.innerText = i
+            }
+        })
+    }
+}
+
+
+
+// Funktion för att konvertera månadsindex till månadsnamn
+let monthName
+function convertMonthIndexToName(index) {
+    monthArray.forEach(element => {
+        if (element.index == index) {
+            console.log(element.name)
+            monthName = element.name
+            return monthName
+        }
+    })
+}
+
+/** SAKER SOM BEHÖVS FÖR START */
+let monthIndex = new Date().getMonth() + 1;
+console.log(monthIndex)
+renderDateBoxes(monthIndex)
+convertMonthIndexToName(monthIndex)
+monthDisplay.innerText = monthName
