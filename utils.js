@@ -20,8 +20,6 @@ button.addEventListener('click', () => {
 		buttonCloseOverlay: document.createElement('button')
 	}
 
-
-
 	//Adderar klasser för styling
 	overlay.classList.add('overlay')
 	content.contentForm.classList.add('content-form')
