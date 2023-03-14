@@ -1,7 +1,7 @@
 const gotoBtn = document.querySelector(".goto-btn")
 
 
-gotoBtn.addEventListener("click", gotoDate);
+// gotoBtn.addEventListener("click", gotoDate);
 
 function gotoDate() {
   console.log("here");

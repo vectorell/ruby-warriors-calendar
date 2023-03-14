@@ -132,10 +132,8 @@ function render() {
     yearDisplay.innerText = state.year
 
     calendarApp.innerHTML = `
-    </div>
-    <div class='date-boxes'>
         ${ dateBoxes(state.year, state.month).map(date => `<div id="${date.key}" class="${date.monthClass} ${date.todayClass ? date.todayClass : ''}">${date.date}</div>`).join('') }
-    </div>`
+    `
 }
 
 
