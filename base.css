@@ -18,7 +18,7 @@ body {
     background-color: #ffffff;
     display: grid;
     grid-template-columns: repeat(7, var(--column-size));
-    grid-template-rows: var(--row-size-half) 3em repeat(6, var(--row-size)) ;
+    /* grid-template-rows: var(--row-size-half) 3em repeat(6, var(--row-size)) ; */
     border: none;
     border-radius: 0.5em;
     width: fit-content;
@@ -45,7 +45,8 @@ body {
 
 .week-view-btn {
     position: absolute;
-    left: 30px;
+    bottom: 8em;
+    left: 3.5em;
     width: 60px;
     height: 40px;
     display: flex;
@@ -65,14 +66,10 @@ body {
 .calendar__month-year__container {
     display: flex;
     flex-direction: row;
-    justify-content: center;
+    justify-content: space-around;
     align-items: center;
     grid-column-start: 0;
     grid-column-end: span 7;
-    /*text-align: center;
-    display: grid;
-    align-content: center;
-    width: 100%;*/
 }
 #year-dropdown {
     width: 4em; 
@@ -81,7 +78,6 @@ body {
     border: 1px solid grey; 
     margin: 0.5em; 
     border-radius: 0.3em;
-
 }
 h1 {
     margin: 0.5em; 
@@ -95,7 +91,6 @@ h1 {
     padding: 0.5em; 
     border-radius: 2em;
     transition: 0.3s;
-
 }
 
 .left-arrow:hover, .right-arrow:hover {
@@ -118,6 +113,7 @@ h1 {
     grid-template-columns: repeat(7, var(--column-size));
     text-align: center;
     align-content: center;
+    padding-top: 1em;
 }
 
 .date-boxes {
@@ -126,20 +122,45 @@ h1 {
     grid-template-rows: repeat(8, var(--row-size)) ;
 }
 
+.current:hover {
+    transition: 0.1s;
+    border: 1px solid #000;
+    font-weight: 600;
+}
+.current:active {
+    transition: 0.1s;
+    border: 1px solid #ffffff00;
+    font-weight: 600;
+}
+
+.date-boxes > .current {
+    box-shadow: 0px 3px 7px #00000061;
+}
+
 
 /* datumboxar för föregående och nästkommande månad */
 .prev, .next {
-    background-color: #dadada;
-    border: 1px solid #c4c4c4;
+    background-color: #dadadac9;
+    /* border: 1px solid white; */
+    color: gray;
+    padding-top: 0.2em;
+    padding-left: 0.2em;
+    filter: blur(0.8px);
 }
 .current {
     border: 1px solid #dedede;
     background-color: #ffffff;
+    padding-top: 0.2em;
+    padding-left: 0.2em;
+    transition: 0.1s;
 }
 
 /* datumboxar för dagens datum */
 .today {
-    background-color: #eed3f5;
+    background-color: #ebe0ee;
+    border: 1px solid #7676768f;
+    font-weight: 600;
+    font-size: 1.1em;
     /* border: 1px solid var(--color-grey); */
 }
 
