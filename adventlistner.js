@@ -4,16 +4,23 @@ const buttonRightArrow = document.querySelector('.right-arrow')
 const yearDropdown = document.getElementById('#year-dropdown');
 
 buttonLeftArrow.addEventListener('click', () => {
-	const theMonthBefore = buttonLeftArrow.value; 
+    if (monthIndex > 0) {
+        renderDateBoxes(--monthIndex)
+        convertMonthIndexToName(monthIndex)
+        monthDisplay.innerText = monthName
+    }
 })
 
 buttonRightArrow.addEventListener('click', () => {
-	const theMonthAfter = buttonRightArrow.value; 
+    if (monthIndex < 12) {
+        renderDateBoxes(++monthIndex)
+        convertMonthIndexToName(monthIndex)
+        monthDisplay.innerText = monthName
+    }
 })
 
-yearDropdown.addEventListener('change', function() {
-  const selectedYear = yearDropdown.value;
-  // Uppdatera kalendern baserat på det valda året
+// yearDropdown.addEventListener('change', function() {
+//   const selectedYear = yearDropdown.value;
+//   // Uppdatera kalendern baserat på det valda året
 
-});
-
+// });
