@@ -75,7 +75,7 @@ body {
     width: 100%;*/
 }
 #year-dropdown {
-    width: 7em; 
+    width: 4em; 
     padding: 0.1em; 
     font-size: 25px;
     border: 1px solid grey; 
@@ -120,9 +120,27 @@ h1 {
     align-content: center;
 }
 
+.date-boxes {
+    display: grid;
+    grid-template-columns: repeat(7, var(--column-size));
+    grid-template-rows: repeat(8, var(--row-size)) ;
+}
+
+
+/* datumboxar för föregående och nästkommande månad */
+.prev, .next {
+    background-color: #dadada;
+    border: 1px solid #c4c4c4;
+}
 .current {
-    border: 1px solid var(--color-grey);
-    background-color: #373c4f;
+    border: 1px solid #dedede;
+    background-color: #ffffff;
+}
+
+/* datumboxar för dagens datum */
+.today {
+    background-color: #eed3f5;
+    /* border: 1px solid var(--color-grey); */
 }
 
 .date-blank {
@@ -139,7 +157,7 @@ h1 {
 
 /* månadstitel */
 .month-display {
-    width:6em;
+    width:5em;
     font-size: 2em;
     text-align: center;
 }
@@ -265,22 +283,3 @@ body {
         }
 }
 
-.date-boxes {
-    display: grid;
-    grid-template-columns: repeat(7, var(--column-size));
-    grid-template-rows: repeat(8, var(--row-size)) ;
-}
-
-
-/* datumboxar för föregående och nästkommande månad */
-.prev, .next {
-    background-color: #40414648;
-    border: 1px solid var(--color-grey);
-}
-
-/* datumboxar för dagens datum */
-.today {
-    background-color: #515777;
-    border: 1px solid var(--color-grey);
-
-}
