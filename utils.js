@@ -76,105 +76,78 @@ button.addEventListener('click', () => {
 	console.log(eventArray)
 }) 
 console.log(eventArray)
-/** GLOBALA VARIABLER och DOM-INHÄMTNINGAR */
-let daysInSelectedMonth
-const dateContainer = document.querySelectorAll('.date__container')
-const dateContainerDayNumber = document.querySelectorAll('.weekday-number-text')
+
 const monthDisplay = document.querySelector('.month-display')
 
-/**************** INHÄMTNING AV DAGENS DATUM + TID *******************/
-// Hela dagens datum som sträng
-let currentFullDateString = Date()
-console.log(currentFullDateString)
+let months = ['Januari', 'Februari', 'Mars', 'April', 'Maj', 'Juni', 'Juli', 'Augusti', 'September', 'Oktober', 'November', 'December']
+let weekdays = ['Måndag', 'Tisdag', 'Onsdag', 'Torsdag', 'Fredag', 'Lördag', 'Söndag']
+let gridsize = 42
 
-// Hela dagens datum omgjort till en array
-let currentFullDateArray = currentFullDateString.split(' ')
-
-// Dagens klockslag
-let currentTimeString = currentFullDateArray[4]
-let currentTime = currentTimeString.split(':')
-
-// Dagens datum + tid, som används i funktioner etc
-let today = {
-    todayYear: currentFullDateArray[3],
-    todayMonth: currentFullDateArray[1],
-    todayWeekday: currentFullDateArray[0],
-    todayDate: currentFullDateArray[2],
-    todayHour: currentTime[0],
-    todayMinute: currentTime[1],
-    todaySecond: currentTime[2]
+let state = {
+    month: new Date().getMonth(),
+    year: new Date().getFullYear()
 }
 
+function dateBoxes(year, month) {
+    let dates = []
 
+    let firstDayInMonth = new Date(year, month).getDay()
 
-/*******************************************/
+    let daysInMonth = new Date(year, month + 1, 0).getDate()
 
+    let daysInPreviousMonth = new Date(year, month, 0).getDate()
 
-monthArray = [
-    {name: 'JANUARI', days: 31, index: 1},
-    {name: 'FEBRUARI', days: 28, index: 2},
-    {name: 'MARS', days: 31, index: 3},
-    {name: 'APRIL', days: 30, index: 4},
-    {name: 'MAJ', days: 31, index: 5},
-    {name: 'JUNI', days: 30, index: 6},
-    {name: 'JULI', days: 31, index: 7},
-    {name: 'AUGUSTI', days: 31, index: 8},
-    {name: 'SEPTEMBER', days: 30, index: 9},
-    {name: 'OKTOBER', days: 31, index: 10},
-    {name: 'NOVEMBER', days: 30, index: 11},
-    {name: 'DECEMBER', days: 31, index: 12}
-]
-
-// FUNKTION: Returnera antal dagar för vald månad
-function howManyDaysInMonth(month) {
-    monthArray.forEach(element => {
-        if ((element.name == month) || (element.index == month)) {
-            // console.log(element.days)
-            daysInSelectedMonth = element.days
-            return daysInSelectedMonth
-        }
-    })
-}
-
-
-// FUNKTION: Grafisk rendering av datumboxar baserat på vald månad
-// (beroende av funktionen 'howManyDaysInMonth()')
-function renderDateBoxes(month) {
-    howManyDaysInMonth(month)
-    console.log(daysInSelectedMonth)
-
-    // Nollställning inför rendering
-    dateContainer.forEach(element => {
-        element.style.visibility = 'hidden'
-    })
-
-    for (let i = 0; i < daysInSelectedMonth+1; i++) {
-        dateContainer.forEach(element => {
-            if (element.classList.contains(`date${i}`)) {
-                element.style.visibility = 'visible'
-                element.innerText = i
-            }
-        })
+    // Föregående månads dagar som ska visas i kalendern
+    for (let i = 1; i < firstDayInMonth; i++) {
+        let previousMonthDate = daysInPreviousMonth - firstDayInMonth + i
+        let key = new Date(state.year, state.month -1, previousMonthDate).toLocaleString()
+        dates.push({key: key, date: previousMonthDate, monthClass: 'prev'})
     }
-}
 
-
-
-// Funktion för att konvertera månadsindex till månadsnamn
-let monthName
-function convertMonthIndexToName(index) {
-    monthArray.forEach(element => {
-        if (element.index == index) {
-            console.log(element.name)
-            monthName = element.name
-            return monthName
+    // Denna månadens dagar som ska renderas
+    let today = new Date()
+    for (let i = 1; i <= daysInMonth; i++) {
+        let key = new Date(state.year, state.month, i).toLocaleString();
+        if (i === today.getDate() && state.month === today.getMonth() && state.year === today.getFullYear()) {
+            dates.push({key: key, date: i, monthClass: 'current', todayClass: 'today'})
+        } else {
+            dates.push({key: key, date: i, monthClass: 'current'})
         }
-    })
+    }
+
+    
+    // Kolla om det finns plats över i griden, visa dagar för kommande månad
+    if (dates.length < gridsize) {
+        let count = gridsize - dates.length
+        for (let i = 1; i <= count; i++) {
+            let key = new Date(state.year, state.month + 1, i).toLocaleString()
+            dates.push({key: key, date: i, monthClass:'next'})
+        }
+    }
+    return dates
 }
 
-/** SAKER SOM BEHÖVS FÖR START */
-let monthIndex = new Date().getMonth() + 1;
-console.log(monthIndex)
-renderDateBoxes(monthIndex)
-convertMonthIndexToName(monthIndex)
-monthDisplay.innerText = monthName
+function render() {
+    let calendarApp = document.querySelector('.date-boxes')
+    const yearDisplay = document.querySelector('.year-display');
+    monthDisplay.innerText = months[state.month]
+    yearDisplay.innerText = state.year
+
+    calendarApp.innerHTML = `
+    </div>
+    <div class='date-boxes'>
+        ${ dateBoxes(state.year, state.month).map(date => `<div id="${date.key}" class="${date.monthClass} ${date.todayClass ? date.todayClass : ''}">${date.date}</div>`).join('') }
+    </div>`
+}
+
+
+
+function showCalendar(prevOrNext) {
+    let date = new Date(state.year, state.month + prevOrNext)
+
+    state.year = date.getFullYear()
+    state.month = date.getMonth()
+    render()
+}
+
+showCalendar(0)
