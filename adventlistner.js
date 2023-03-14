@@ -11,6 +11,14 @@ buttonRightArrow.addEventListener('click', () => {
     showCalendar(1);
 })
 
+let current = document.querySelectorAll('.current')
+current.forEach(element => {
+    element.addEventListener('click', (event) => {
+		console.log(event.target.id)
+});
+	
+})
+
 // yearDropdown.addEventListener('change', function() {
 //   const selectedYear = yearDropdown.value;
 //   // Uppdatera kalendern baserat på det valda året
