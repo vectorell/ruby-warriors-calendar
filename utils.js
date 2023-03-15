@@ -115,16 +115,31 @@ button.addEventListener('click', () => {
 }) 
 
 // En funktion som ska göra så att informationen från ett event visas
-function showActivities(date) {
+export function showActivities(date) {
 	const activities = activitiesByDate[date]
 	let activitiesList = document.createElement('ul')
 	activitiesList.className = 'activities-list'
-	for (let i = 0; i < activities.length; i++) {
-		let listItem = document.createElement('li');
-		listItem.innerText = `Att göra: ${activities[i].head} Plats:  ${activities[i].place} Tid: ${activities[i].time} Kom ihåg: ${activities[i].event}`;
-		
-		activitiesList.append(listItem);
+
+	if (!activities || activities.length === 0) {
+		let listItem = document.createElement('li')
+		listItem.innerText = 'Inga aktiviteter denna dagen.'
+		activitiesList.append(listItem)
+	} else {
+		for (let i = 0; i < activities.length; i++) {
+			let listItem = document.createElement('li');
+			listItem.innerText = 
+			`Att göra: ${activities[i].head} 
+			Plats:  ${activities[i].place} 
+			Tid: ${activities[i].time} 
+			Kom ihåg: ${activities[i].event}`;
+			activitiesList.append(listItem);
+			
+		}
 	}
+
+	events.innerHTML = ''
+	events.append(activitiesList)
+	
 	console.log(activitiesList)
 }
 
