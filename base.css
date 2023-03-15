@@ -46,7 +46,7 @@ body {
 .week-view-btn {
     position: absolute;
     top: 2em;
-    left: .6em;
+    left: 2em;
     width: 60px;
     height: 40px;
     display: flex;
@@ -121,7 +121,11 @@ h1 {
     grid-template-columns: repeat(7, var(--column-size));
     grid-template-rows: repeat(8, var(--row-size)) ;
 }
-
+.date-boxes-2 {
+    display: grid;
+    grid-template-columns: repeat(7, var(--column-size));
+    grid-template-rows: repeat(8, var(--row-size)) ;
+}
 .current:hover {
     transition: 0.1s;
     border: 1px solid #000;
