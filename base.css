@@ -379,11 +379,6 @@ body {
     text-align: center;
     align-content: center;
 }
-.date-boxes {
-    display: grid;
-    grid-template-columns: repeat(7, var(--column-size));
-    grid-template-rows: repeat(7, var(--row-size)) ;
-}
 
 .modal-header {
 	padding: 10px 15px;
