@@ -16,3 +16,14 @@ buttonRightArrow.addEventListener('click', () => {
 //   // Uppdatera kalendern baserat på det valda året
 
 // });
+
+yearDisplay.addEventListener('keydown', (event) => {
+    if (event.key == "Enter") {
+        state.year = yearDisplay.value
+        showCalendar(0)
+    }
+})
+yearDisplay.addEventListener('click', () => {
+    state.year = yearDisplay.value
+    showCalendar(0)
+})
