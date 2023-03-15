@@ -353,7 +353,7 @@ body {
 
 /* popup */
 
-   /* .modal {
+   .modal {
 	position: fixed;
 	top: 50%;
 	left: 50%;
@@ -426,4 +426,4 @@ body {
 #overlay.active {
 	opacity: 1;
 	pointer-events: all;
-} */
+}
