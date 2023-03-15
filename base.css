@@ -45,16 +45,16 @@ body {
 
 .week-view-btn {
     position: absolute;
-    bottom: 8em;
-    left: 3.5em;
+    top: 2em;
+    left: .6em;
     width: 60px;
     height: 40px;
     display: flex;
     align-items: center;
     justify-content: center;
     font-size: 16px;
-    color: #2f3038;
-    border: 2px solid #2f3038;
+    color: #0a24e7;
+    border: 2px solid #232e85;
     opacity: 0.5;
     background-color: transparent;
     cursor: pointer;
@@ -256,6 +256,7 @@ h1 {
     color: #b28dbd;
   }
    .goto-today .goto {
+    bottom: 0;
     display: flex;
     align-items: center;
     border-radius: 5px;
@@ -269,20 +270,22 @@ h1 {
     border: none;
     border-radius: 5px;
     padding: 0 20px;
+    background-color: #b28dbd;
     color: var(--primary-clr);
     border-radius: 5px;
   }
    .goto-today button {
     padding: 5px 10px;
+    margin-left: 12px;
     border: 1px solid var(--primary-clr);
     border-radius: 5px;
-    background-color: transparent;
+    background-color: transparent #7676768f;
     cursor: pointer;
     color: var(--primary-clr);
   }
    .goto-today button:hover {
     color: #fff;
-    background-color: var(--primary-clr);
+    background-color: #2f3038;
   }
    .goto-today .goto button {
     border: none;
