@@ -125,11 +125,12 @@ function dateBoxes(year, month) {
     return dates
 }
 
-function render() {
+const yearDisplay = document.querySelector('.year-display');
+function render(date) {
     let calendarApp = document.querySelector('.date-boxes')
-    const yearDisplay = document.querySelector('.year-display');
     monthDisplay.innerText = months[state.month]
-    yearDisplay.innerText = state.year
+    yearDisplay.value = state.year
+    // console.log(date.todayClass)
 
     calendarApp.innerHTML = `
         ${ dateBoxes(state.year, state.month).map(date => `<div id="${date.key}" class="${date.monthClass} ${date.todayClass ? date.todayClass : ''}">${date.date}</div>`).join('') }
