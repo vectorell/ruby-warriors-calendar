@@ -91,6 +91,8 @@ function dateBoxes(year, month) {
 
     let firstDayInMonth = new Date(year, month).getDay()
 
+    firstDayInMonth = firstDayInMonth === 0 ? 7 : firstDayInMonth
+
     let daysInMonth = new Date(year, month + 1, 0).getDate()
 
     let daysInPreviousMonth = new Date(year, month, 0).getDate()
