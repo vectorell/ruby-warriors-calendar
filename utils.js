@@ -1,81 +1,46 @@
-const button = document.querySelector('.add-event-btn')
-const body = document.querySelector('body')
-let eventArray = []
 
-button.addEventListener('click', () => {
-	console.log('Du klickade på knappen')
+/** GLOBALA VARIABLER och DOM-INHÄMTNINGAR */
 
-	// Skapa alla element
-	const overlay = document.createElement('div')
-	const content = {
-		contentForm: document.createElement('form'),
-		head: document.createElement('h2'),
-		inputHead: document.createElement('input'),
-		inputPlace: document.createElement('input'),
-		inputDate: document.createElement('input'),
-		inputTime: document.createElement('input'),
-		inputEvent: document.createElement('input'),
-		buttonContainer: document.createElement('div'),
-		buttonAddEvent: document.createElement('button'),
-		buttonCloseOverlay: document.createElement('button')
-	}
+// let eventArray = []
+// const eventName = document.querySelector('.event-name')
+// const timeStamp = document.querySelector('.time-stamp')
+// const placeText = document.querySelector('.place-text')
+// const reminder = document.querySelector('.reminder-text')
 
-	//Adderar klasser för styling
-	overlay.classList.add('overlay')
-	content.contentForm.classList.add('content-form')
-	content.inputHead.classList.add('input-head')
-	content.inputPlace.classList.add('input-place')
-	content.inputEvent.classList.add('input-event')
-	content.inputDate.classList.add('input-date')
-	content.inputTime.classList.add('input-time')
-	content.buttonContainer.classList.add('button-container')
-	content.buttonAddEvent.classList.add('button-add-event')
-	
-	// Innehåll
-	content.inputDate.type = 'date'
-	content.inputTime.type = 'time'
-	content.inputHead.placeholder = '  Ny aktivitet'
-	content.inputPlace.placeholder = '  Lägg till plats'
-	content.inputEvent.placeholder = '  Lägg till påminnelse'
-	content.buttonAddEvent.innerText = 'Lägg till Event'
-	content.head.innerText = 'Lägg till ett event i din kalender'
-	content.buttonCloseOverlay.innerText = 'Stäng'
-
-	// Lägger till i DOM
-	content.contentForm.append(content.head)
-	content.contentForm.append(content.inputHead)
-    content.contentForm.append(content.inputPlace)
-	content.contentForm.append(content.inputDate)
-	content.contentForm.append(content.inputTime)
-	content.contentForm.append(content.inputEvent)
-	content.buttonContainer.append(content.buttonAddEvent)
-	content.buttonContainer.append(content.buttonCloseOverlay)
-	content.contentForm.append(content.buttonContainer)
-	
-	overlay.append(content.contentForm)
-
-	body.append(overlay)
-	content.buttonAddEvent.addEventListener('click', (event) => {
-		event.preventDefault();
-		const headValue = content.inputHead.value;
-    	const placeValue = content.inputPlace.value;
-    	const dateValue = content.inputDate.value;
-    	const timeValue = content.inputTime.value;
-    	const eventValue = content.inputEvent.value;
-		eventArray.push(headValue, placeValue, dateValue, timeValue, eventValue)
-	})
-
-	content.buttonCloseOverlay.addEventListener('click', (event) => {
-		event.preventDefault();
-	
-		overlay.remove();
-	})
-	
-	console.log(eventArray)
-}) 
-console.log(eventArray)
-
+let daysInSelectedMonth
+const dateContainer = document.querySelectorAll('.date__container')
+const dateContainerDayNumber = document.querySelectorAll('.weekday-number-text')
 const monthDisplay = document.querySelector('.month-display')
+
+
+
+
+
+
+
+
+/************** INHÄMTNING AV DAGENS DATUM + TID *******************/
+// Hela dagens datum som sträng
+let currentFullDateString = Date()
+console.log(currentFullDateString)
+
+	// Hela dagens datum omgjort till en array
+let currentFullDateArray = currentFullDateString.split(' ')
+
+// Dagens klockslag
+let currentTimeString = currentFullDateArray[4]
+let currentTime = currentTimeString.split(':')
+
+// Dagens datum + tid, som används i funktioner etc
+let today = {
+    todayYear: currentFullDateArray[3],
+    todayMonth: currentFullDateArray[1],
+    todayWeekday: currentFullDateArray[0],
+    todayDate: currentFullDateArray[2],
+    todayHour: currentTime[0],
+    todayMinute: currentTime[1],
+    todaySecond: currentTime[2]
+}
 
 let months = ['Januari', 'Februari', 'Mars', 'April', 'Maj', 'Juni', 'Juli', 'Augusti', 'September', 'Oktober', 'November', 'December']
 let weekdays = ['Måndag', 'Tisdag', 'Onsdag', 'Torsdag', 'Fredag', 'Lördag', 'Söndag']
@@ -135,10 +100,8 @@ function render(date) {
     // console.log(date.todayClass)
 
     calendarApp.innerHTML = `
-        ${ dateBoxes(state.year, state.month).map(date => `<div id="${date.key}" class="${date.monthClass} ${date.todayClass ? date.todayClass : ''}">${date.date}</div>`).join('') }
-    `
+        ${ dateBoxes(state.year, state.month).map(date => `<div id="${date.key}" class="${date.monthClass} ${date.todayClass ? date.todayClass : ''}">${date.date}</div>`).join('') }`
 }
-
 
 
 function showCalendar(prevOrNext) {
