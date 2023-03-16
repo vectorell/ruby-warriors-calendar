@@ -151,7 +151,7 @@ h1 {
     align-items: center;
     width: 20%;
     height: 400px;
-    background-color: rgba(157, 86, 211, 0.606);
+    background-color: rgb(191, 148, 224);
     margin: 7px;
     box-sizing: border-box;
     font-size: 17px;
@@ -371,9 +371,15 @@ body {
 }
 }
 
-@media screen and (max-width: 299px) {
+@media screen and (max-width: 300px) {
+.date-boxes-2{
+    display: flex;
+    flex-flow: wrap;
+    justify-content: space-around;
+
+}
 .box{
-    width: 90%;
+    width: 100%;
 }
 .calendar .calendar__month-year__container {
     height: 75px;
@@ -407,7 +413,7 @@ body {
 	border-radius: 10px;
 	z-index: 10;
 	background-color: white;
-	width: 90%;
+	width: 80%;
 	max-width: 100%;
   }
 
