@@ -7,6 +7,7 @@ const activitiesByDate = {}
 const events = document.querySelector('.events')
 const eventDay = document.querySelector('.event-day')
 const eventDate = document.querySelector('.event-date')
+const container = document.querySelector('.container')
 // let eventArray = []
 // const eventName = document.querySelector('.event-name')
 // const timeStamp = document.querySelector('.time-stamp')
@@ -46,6 +47,7 @@ button.addEventListener('click', () => {
 	//Adderar klasser för styling
 	overlay.classList.add('overlay')
 	content.contentForm.classList.add('content-form')
+	content.head.classList.add('head-form')
 	content.inputHead.classList.add('input-head')
 	content.inputPlace.classList.add('input-place')
 	content.inputEvent.classList.add('input-event')
@@ -77,7 +79,7 @@ button.addEventListener('click', () => {
 	
 	overlay.append(content.contentForm)
 
-	rightSide.append(overlay)
+	container.append(overlay)
 	content.buttonAddEvent.addEventListener('click', (event) => {
 		event.preventDefault();
 		const headValue = content.inputHead.value;

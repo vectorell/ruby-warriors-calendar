@@ -10,6 +10,7 @@ body {
     display: flex;
     justify-content: center;
     align-items: center;
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
 }
 
 /* Yttersta kalender-containern */
@@ -27,10 +28,16 @@ body {
     box-shadow: var(--shadow-type-1);
     margin: 0px;
 }
+
+.head-events {
+    margin-left: 0.5em;
+    font-weight: 100;
+}
+
 .container {
     position: relative;
     width: 1200px;
-    min-height: 850px;
+    min-height: 750px;
     margin: 0 auto;
     padding: 5px;
     color: #fff;
@@ -166,7 +173,7 @@ h1 {
 .container .right {
     position: relative;
     width: 40%;
-    min-height: 100%;
+    height: 680px;
     padding: 20px 0;
     }
     
@@ -175,8 +182,8 @@ h1 {
     /* height: 50px; */
     display: flex;
     flex-wrap: wrap;
-    padding-right: 1em;
-    padding-left: 1em;
+    padding-right: 0.3em;
+    padding-left: 0.3em;
     /* gap: 10px; */
     align-items: center;
     justify-content: space-between;
@@ -198,7 +205,7 @@ h1 {
 
 .events {
     width: 100%;
-    height: 100%;
+    /* height: 100%; */
     max-height: 600px;
     overflow-x: hidden;
     overflow-y: auto;
