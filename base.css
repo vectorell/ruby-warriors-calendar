@@ -137,10 +137,26 @@ h1 {
     grid-template-rows: repeat(8, var(--row-size)) ;
 }
 .date-boxes-2 {
-    display: grid;
-    grid-template-columns: repeat(7, var(--column-size));
-    grid-template-rows: repeat(8, var(--row-size)) ;
+    width: 100%;
+    height: auto;
+    background-color: #ffffff;
+    display: flex;
+    /* grid-template-columns: repeat(7, var(--column-size));
+    grid-template-rows: repeat(8, var(--row-size)) ; */
+    flex-direction: row;
+    justify-content: space-around;
+    /* flex-flow: wrap; */
 }
+.box{
+    align-items: center;
+    width: 20%;
+    height: 400px;
+    background-color: rgba(157, 86, 211, 0.606);
+    margin: 7px;
+    box-sizing: border-box;
+    font-size: 17px;
+}
+
 .current:hover {
     transition: 0.1s;
     border: 1px solid #000;
@@ -350,9 +366,15 @@ body {
 .add-event-wrapper {
         bottom: 100px;
         }
+.box{
+    width: 40%;
+}
 }
 
 @media screen and (max-width: 299px) {
+.box{
+    width: 90%;
+}
 .calendar .calendar__month-year__container {
     height: 75px;
         }
@@ -385,10 +407,13 @@ body {
 	border-radius: 10px;
 	z-index: 10;
 	background-color: white;
-	width: 600px;
-	max-width: 80%;
+	width: 90%;
+	max-width: 100%;
   }
 
+  .modal .weekday-paragraph{
+    margin-left: 100px;
+  }
   .modal.active {
 	transform: translate(-50%, -50%) scale(1);
   }

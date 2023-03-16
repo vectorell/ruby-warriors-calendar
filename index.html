@@ -19,7 +19,7 @@
     <!-- Container: Yttersta huvud-containern som allting ligger i -->
     <div class="calendar">
 
-      <button data-modal-target="#modal" class="week-view-btn">Week View</button>
+      <button data-modal-target="#modal" class="week-view-btn">Veckovy</button>
       <div class="modal" id="modal">
        <div class="modal-header">
     
@@ -27,40 +27,19 @@
           <button data-close-button class="close-button">&times;</button>
        </div>
        <div class="modal-body">
-          <div class="calendar__weekdaytitles__container">
-             <div class="weekday__container title-monday"> <span class="weekday-paragraph"> MÅNDAG </span> </div>
-             <div class="weekday__container title-tuesday"> <span class="weekday-paragraph"> TISDAG </span> </div>
-             <div class="weekday__container title-wednesday"> <span class="weekday-paragraph"> ONSDAG </span> </div>
-             <div class="weekday__container title-thursday"> <span class="weekday-paragraph"> TORSDAG </span> </div>
-             <div class="weekday__container title-friday"> <span class="weekday-paragraph"> FREDAG </span> </div>
-             <div class="weekday__container title-saturday"> <span class="weekday-paragraph"> LÖRDAG </span> </div>
-             <div class="weekday__container title-sunday"> <span class="weekday-paragraph"> SÖNDAG </span> </div>
-         </div>
-
-
          <div class="date-boxes-2">
-         <div class="date__container date1"> <span class="weekday-number-text"> 1 </span> </div>
-            <div class="date__container date2"> <span class="weekday-number-text"> 2 </span> </div>
-            <div class="date__container date3"> <span class="weekday-number-text"> 3 </span> </div>
-            <div class="date__container date4"> <span class="weekday-number-text"> 4 </span> </div>
-            <div class="date__container date5"> <span class="weekday-number-text"> 5 </span> </div>
-            <div class="date__container date6"> <span class="weekday-number-text"> 6 </span> </div>
-            <div class="date__container date7"> <span class="weekday-number-text"> 7 </span> </div>
+         <div class="box">MÅNDAG</div>
+         <div class="box">TISDAG</div>
+         <div class="box">ONSDAG</div>
+         <div class="box">TORSDAG</div>
+         <div class="box">FREDAG</div>
+         <div class="box">LÖRDAG</div>
+         <div class="box">SÖNDAG</div>
             </div>
          
        </div>
       </div>
       <div id="overlay"></div>
-
-
-
-
-         
-
-
-
-
-
 
         <!-- Container: Månad och år -->
         <div class="calendar__month-year__container">
@@ -87,20 +66,8 @@
             <div class="weekday__container title-sunday"> <span class="weekday-paragraph"> SÖNDAG </span> </div>
         </div>
 
-        <div class="date-boxes">
-            
-        </div>
-     
-    <!-- <button class="add-event-btn">Lägg till händelse</button> -->
-    
-          
+        <div class="date-boxes"></div>    
     </div>
-    <div class="goto-today">
-          <div class="goto">
-            <input type="text" placeholder="mm/yyyy" class="date-input" />
-            <button class="goto-btn">Go</button>
-          </div>
-        </div>
   </div>
 
     <!-- right vy som handlar om event/händelser under dagen -->
@@ -113,7 +80,6 @@
       <div class="events"></div>
     
     <button class="add-event-btn">Lägg till händelse</button>
-      <!-- <i class="fas fa-plus"></i> -->
    
  </div>
   </div>
