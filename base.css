@@ -113,7 +113,7 @@ h1 {
 
 /* Containrar för veckodagarnas text */
 .calendar__weekdaytitles__container {
-    grid-column-start: 0;
+    grid-column-start: 1;
     grid-column-end: span 7;
     display: grid;
     grid-template-columns: repeat(7, var(--column-size));

@@ -19,14 +19,10 @@ const dateContainerDayNumber = document.querySelectorAll('.weekday-number-text')
 const monthDisplay = document.querySelector('.month-display')
 
 
-
-
-
 window.addEventListener('load', function() {
 		eventDate.innerText = today.todayDate + ' ' + today.todayMonth
 		eventDay.innerText = today.todayWeekday
 	})
-
 
 
 button.addEventListener('click', () => {
