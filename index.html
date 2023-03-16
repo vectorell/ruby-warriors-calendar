@@ -10,7 +10,8 @@
     <link rel="stylesheet" href="/overlay.css">
     <script src="/utils.js" defer></script>
     <script src="script.js" type="module"></script>
-    <script defer src="adventlistner.js"></script>
+    <script  src="adventlistner.js" defer ></script>
+    <script src="events.js" type="module"></script>
 </head>
 <body>
 
@@ -67,6 +68,18 @@
         </div>
 
         <div class="date-boxes"></div>    
+        
+     
+    <!-- <button class="add-event-btn">Lägg till händelse</button> -->
+    
+    
+          
+        </div>
+        <div class="goto-today">
+          <div class="goto">
+            <input type="text" placeholder="mm/yyyy" class="date-input" />
+            <button class="goto-btn">Go</button>
+          </div>
     </div>
   </div>
 
@@ -74,10 +87,14 @@
 
     <div class="right">
       <div class="today-date">
-        <div class="event-day">Ons</div>
-        <div class="event-date">12 Maj 2023</div>
+        <div class="event-day"></div>
+        <div class="event-date"></div>
+      </div> 
+      <h2 class="head-events">Aktiviteter:</h2>
+      <div class="events">
+        
+          
       </div>
-      <div class="events"></div>
     
     <button class="add-event-btn">Lägg till händelse</button>
    
