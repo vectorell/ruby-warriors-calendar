@@ -1,41 +1,9 @@
-let current = document.querySelectorAll('.current')
-const weekday = document.querySelector('.calendar__weekdaytitles__container')
-const button = document.querySelector('.add-event-btn')
-const body = document.querySelector('body')
-const rightSide = document.querySelector('.right')
-const activitiesByDate = {}
-const events = document.querySelector('.events')
-const eventDay = document.querySelector('.event-day')
-const eventDate = document.querySelector('.event-date')
-const container = document.querySelector('.container')
-
 window.addEventListener('load', function() {
 	eventDate.innerText = today.todayDate + ' ' + today.todayMonth
 	eventDay.innerText = today.todayWeekday
 })
 
-current.forEach(element => {
-    element.addEventListener('click', (event) => {
-		console.log('klick')
-        const dateId = event.target.id
-		console.log(event)
-        const index = dateId.indexOf(' ');
-        const dateWithoutTime = dateId.substring(0, index);
-        console.log(dateWithoutTime);
-        
-        // Denna koden jämför datumet och tar fram rätt veckodag
-        const dateObject = new Date(dateWithoutTime);
-        const options = { weekday: 'long' };
-        const dayOfWeek = new Intl.DateTimeFormat('sv-SE', options).format(dateObject);
 
-        eventDate.innerText = dateWithoutTime
-        eventDay.innerText = dayOfWeek;
-		 console.log(dayOfWeek)
-			showActivities(dateWithoutTime)
-	   
-	});
-	
-})
 
 
 button.addEventListener('click', () => {
@@ -123,32 +91,3 @@ button.addEventListener('click', () => {
 	
 
 }) 
-
-// En funktion som ska göra så att informationen från ett event visas
-function showActivities(date) {
-	const activities = activitiesByDate[date]
-	let activitiesList = document.createElement('ul')
-	activitiesList.className = 'activities-list'
-
-	if (!activities || activities.length === 0) {
-		let listItem = document.createElement('li')
-		listItem.innerText = 'Inga aktiviteter denna dagen.'
-		activitiesList.append(listItem)
-	} else {
-		for (let i = 0; i < activities.length; i++) {
-			let listItem = document.createElement('li');
-			listItem.innerText = 
-			`Att göra: ${activities[i].head} 
-			Plats:  ${activities[i].place} 
-			Tid: ${activities[i].time} 
-			Kom ihåg: ${activities[i].event}`;
-			activitiesList.append(listItem);
-			
-		}
-	}
-
-	events.innerHTML = ''
-	events.append(activitiesList)
-	
-	console.log(activitiesList)
-}
