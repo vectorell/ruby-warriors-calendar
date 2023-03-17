@@ -1,22 +1,10 @@
 
+
 /** GLOBALA VARIABLER och DOM-INHÄMTNINGAR */
-
-// let eventArray = []
-// const eventName = document.querySelector('.event-name')
-// const timeStamp = document.querySelector('.time-stamp')
-// const placeText = document.querySelector('.place-text')
-// const reminder = document.querySelector('.reminder-text')
-
 let daysInSelectedMonth
 const dateContainer = document.querySelectorAll('.date__container')
 const dateContainerDayNumber = document.querySelectorAll('.weekday-number-text')
 const monthDisplay = document.querySelector('.month-display')
-
-
-
-
-
-
 
 
 /************** INHÄMTNING AV DAGENS DATUM + TID *******************/

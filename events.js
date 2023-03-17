@@ -14,7 +14,6 @@ window.addEventListener('load', function() {
 	eventDay.innerText = today.todayWeekday
 })
 
-
 current.forEach(element => {
     element.addEventListener('click', (event) => {
 		console.log('klick')
@@ -126,7 +125,7 @@ button.addEventListener('click', () => {
 }) 
 
 // En funktion som ska göra så att informationen från ett event visas
- function showActivities(date) {
+function showActivities(date) {
 	const activities = activitiesByDate[date]
 	let activitiesList = document.createElement('ul')
 	activitiesList.className = 'activities-list'
