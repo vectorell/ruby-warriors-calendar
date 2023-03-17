@@ -153,3 +153,132 @@ function closeModal(modal) {
   modal.classList.remove('active')
   overlay.classList.remove('active')
 }
+
+
+// let currentWeek
+// let targetWeek
+// let currentYear
+// let targetYear
+
+// function getCurrentWeek(year, month, day) {
+//     let currentDate = new Date();
+//     // console.log(currentDate)
+//     currentYear = currentDate.getFullYear()
+//     // console.log(currentYear)
+
+
+//     let startDate = new Date(currentDate.getFullYear(), 0, 1);
+//     let days = Math.floor((currentDate - startDate) /
+//         (24 * 60 * 60 * 1000));
+//     // console.log(days)
+         
+//     // console.log(startDate)
+//     currentWeek = Math.ceil(days / 7);
+//     // console.log(weekNumber)
+     
+//     // Display the calculated result      
+//     console.log("Week number of " + currentDate +
+//         " is :   " + currentWeek);
+//     return currentWeek
+// }
+
+// function getWeekDifference(year, month, day) {
+//     let currentDate = new Date();
+//     // console.log(currentDate)
+//     targetYear = year
+//     // console.log(currentYear)
+
+
+//     let startDate = new Date(year, (month-1), (day));
+//     let days = Math.floor(-1*(currentDate - startDate) /
+//         (24 * 60 * 60 * 1000));
+//     console.log(days)
+         
+//     console.log(startDate)
+//     let targetWeek = Math.ceil(days / 7);
+//     // console.log(targetWeek)
+     
+//     // // Display the calculated result      
+//     // console.log("Week number of " + currentDate +
+//     //     " is :   " + weekNumber);
+//     return targetWeek
+// }
+
+// getCurrentWeek()
+// getWeekDifference(2023,01,01)
+
+
+// let result = getCurrentWeek()+getWeekDifference(2023,12,19)
+// console.log(result)
+
+// let yearDifference = currentYear - targetYear
+// console.log(yearDifference)
+
+// for (let i = 0; i < yearDifference; i++) {
+//     if (yearDifference > 0) {
+//         result = (result - (51*yearDifference))
+//     } else if (yearDifference < 0) {
+//         result += 52
+//     }
+ 
+
+
+// if (result > 52) {
+//     result = result - (52*targetYear)
+// }
+
+
+
+// }
+// console.log(result)
+
+// let yearDifference = currentYear - targetYear;
+
+// if (targetWeek > 52){
+// for (let i = 0; i < 52; week++) {
+//   result = result + 1
+//   if (yearDifference > 0) {
+//     result = result - 51;
+//   } else if (yearDifference < 0) {
+//     result = result + 51;
+//   }
+// }}
+
+function getCurrentWeek(year, month, day) {
+    let currentDate = new Date();
+    
+    let startDate = new Date(currentDate.getFullYear(), 0, 1);
+    let days = Math.floor((currentDate - startDate) /
+    (24 * 60 * 60 * 1000));
+    
+    let currentWeek = Math.ceil(days / 7);
+    return currentWeek
+}
+
+
+function getTargetWeek(year, month, day) {
+    
+    // 1. Hämta skillnad mellan nuvarande vecka och vald vecka
+    let currentDate = new Date();
+    let currentYear = currentDate.getFullYear()
+    let targetYear = year
+
+    let startDate = new Date(year, (month-1), (day));
+    let days = Math.floor(-1*(currentDate - startDate) /
+        (24 * 60 * 60 * 1000));
+    let targetWeek = Math.ceil(days / 7);
+
+
+    // 2. Räkna ut vald vecka mha nuvarande + vald vecka
+    let result = Math.abs(getCurrentWeek() + targetWeek)  
+    let yearDifference = Math.abs(currentYear - targetYear)
+    
+    if (result > 52) {
+        result = result - yearDifference*52
+    }
+    console.log('result')
+    console.log(Math.abs(result))
+}
+
+
+getTargetWeek(2021, 02, 22)
