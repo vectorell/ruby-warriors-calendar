@@ -5,20 +5,30 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title> Ruby Warriors Kalender </title>
-    <link rel="stylesheet" href="base.css">
-    <link rel="stylesheet" href="variables.css">
-    <link rel="stylesheet" href="/overlay.css">
-    <script src="/utils.js" defer ></script>
-    <script src="/adventlistner.js" defer ></script>
-    <script src="/events.js" defer ></script>
-    <script src="/script.js" type="module"></script>
+    <link rel="stylesheet" href="/CSS/base.css">
+    <link rel="stylesheet" href="/CSS/variables.css">
+    <link rel="stylesheet" href="/CSS/overlay.css">
+    <script src="/Javascript/utils.js" defer ></script>
+    <script src="Javascript/adventlistner.js" defer ></script>
+    <script src="Javascript/events.js" defer ></script>
+    <script src="Javascript/script.js" type="module"></script>
 </head>
 <body>
 
   <div class="container">
+    
     <div class="left">
     <!-- Container: Yttersta huvud-containern som allting ligger i -->
     <div class="calendar">
+      <div class="weeknumber-container">
+        <p class="slot-week">v.</p>
+        <p class="slot">1</p>
+        <p class="slot">2</p>
+        <p class="slot">3</p>
+        <p class="slot">4</p>
+        <p class="slot">5</p>
+        <p class="slot">6</p>
+      </div>
 
       <button data-modal-target="#modal" class="week-view-btn">Veckovy</button>
       <div class="modal" id="modal">

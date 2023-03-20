@@ -15,6 +15,7 @@ body {
 
 /* Yttersta kalender-containern */
 .calendar {
+    position: relative;
     color: #000;
     background-color: #ffffff;
     display: grid;
@@ -53,7 +54,7 @@ body {
 
 .week-view-btn {
     position: absolute;
-    bottom: 2.5em;
+    bottom: -3em;
     left: 2em;
     width: 60px;
     height: 40px;
@@ -73,6 +74,20 @@ body {
 .week-view-btn:hover {
     opacity: 1;
 }
+
+.weeknumber-container {
+    position: absolute;
+    left: 0.6em;
+    display: flex;
+    flex-direction: column;
+    gap: 3.6em;
+    top: 6em; 
+}
+#slot1, #slot2, #slot3, #slot4{
+    position: relative;
+    top: -1em; 
+}
+
 /* Container för månad och år ("headern") */
 .calendar__month-year__container {
     display: flex;

@@ -91,11 +91,28 @@ const eventDay = document.querySelector('.event-day')
 const eventDate = document.querySelector('.event-date')
 const container = document.querySelector('.container')
 
+
+
+
 const yearDisplay = document.querySelector('.year-display');
 function render(date) {
     let calendarApp = document.querySelector('.date-boxes')
     monthDisplay.innerText = months[state.month]
     yearDisplay.value = state.year
+    let slots = document.querySelectorAll('.slot')
+    let firstWeek = getTargetWeek(state.year, state.month, 3)
+    for (let i = 0; i < slots.length; i++) {
+        slots[i].innerText = firstWeek-1 + i
+        // if (slots[0] = 0) {
+        //    firstWeek.innerText = '52'
+        // }
+    }
+
+    slots.forEach(element => {
+        if (element.innerText == '0') {
+            element.innerText = '52'
+        }
+    })
     
     calendarApp.innerHTML = `
         ${ dateBoxes(state.year, state.month).map(date => `<div id="${date.key}" class="${date.monthClass} ${date.todayClass ? date.todayClass : ''}">${date.date}</div>`).join('') }`
@@ -230,7 +247,7 @@ function getTargetWeek(year, month, day) {
     let currentYear = currentDate.getFullYear()
     let targetYear = year
 
-    let startDate = new Date(year, (month-1), (day));
+    let startDate = new Date(year, (month), (day));
     let days = Math.floor(-1*(currentDate - startDate) /
         (24 * 60 * 60 * 1000));
     let targetWeek = Math.ceil(days / 7);
@@ -245,6 +262,7 @@ function getTargetWeek(year, month, day) {
     }
     console.log('result')
     console.log(Math.abs(result))
+    return result
 }
 
 
