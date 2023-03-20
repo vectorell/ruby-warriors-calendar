@@ -4,6 +4,93 @@ window.addEventListener('load', function() {
 })
 
 
+let LS_KEY = 'saved-events'
+// // Funktion för att uppdatera local storage till activitiesByDate
+// function fetchLocalStorage() {
+//     let stringFromLocalStorage = localStorage.getItem(LS_KEY)
+//      if (!stringFromLocalStorage) { stringFromLocalStorage = '[]' }
+
+//     let arrayFromLocalStorage = JSON.parse(stringFromLocalStorage)
+
+
+//     activitiesByDate = arrayFromLocalStorage
+//     console.log(arrayFromLocalStorage)
+//     console.log('test')
+//     // if (arrayFromLocalStorage != null) {
+
+//         for (let i = 0; i < arrayFromLocalStorage.length; i++) {
+//             let activity = activitiesByDate[i]
+//             let alteredActivity = Object.values(activity)
+//             console.log('alteredActivity')
+//             console.log(alteredActivity)
+    
+//             alteredActivity.forEach(element => {
+//                 // console.log('alteredActivity2')
+//                 // console.log(alteredActivity)
+//                 for (let i = 0; i < element.length; i++) {
+//                     console.log(element[i].date)
+//                     console.log('test')
+//                     showActivities(element[i].date)
+//                 }
+//                 // element.forEach(element => {
+//                     // showActivities(element.date)
+//                 })
+            
+//         }
+//     // }
+    
+    
+// }
+
+// fetchLocalStorage()
+
+
+function fetchLocalStorage() {
+    let arrayFromLocalStorage = JSON.parse(localStorage.getItem(LS_KEY))
+    console.log('arrayFromLocalStorage nedan:')
+    console.log(arrayFromLocalStorage)
+
+    let arrayElement = Object.fromEntries(arrayFromLocalStorage) 
+    console.log(arrayElement)
+
+
+    arrayFromLocalStorage.forEach(element => {
+        console.log('element')
+        console.log(element)
+
+        // let arrayElement = Object.fromEntries(element) 
+        console.log('arrayElement')
+        console.log(arrayElement)
+        for (let i = 0; i < arrayElement.length; i++) {
+            console.log('arrayElement[i]')
+            console.log(arrayElement[i])
+        }
+
+                
+            })
+
+}
+
+fetchLocalStorage()
+
+// Funktion för att spara till local storage
+function saveToLocalStorage(item) {
+
+    let stringFromLocalStorage = localStorage.getItem(LS_KEY)
+    if (!stringFromLocalStorage) { stringFromLocalStorage = '[]' }
+
+    // item = activitiesByDate
+
+    let arrayFromLocalStorage = JSON.parse(stringFromLocalStorage)
+    // console.log(arrayFromLocalStorage)
+    arrayFromLocalStorage.push(item)
+
+    let stringToSave = JSON.stringify(arrayFromLocalStorage)
+    localStorage.setItem(LS_KEY, stringToSave)
+}
+
+
+
 
 
 button.addEventListener('click', () => {
@@ -79,7 +166,10 @@ button.addEventListener('click', () => {
 			time: timeValue,
 			event: eventValue
 		})
+        saveToLocalStorage(activitiesByDate)
 		console.log(activitiesByDate)
+        console.log('dateValue')
+        console.log(dateValue)
 	 showActivities(dateValue)
 	})
 

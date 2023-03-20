@@ -85,7 +85,7 @@ const weekday = document.querySelector('.calendar__weekdaytitles__container')
 const button = document.querySelector('.add-event-btn')
 const body = document.querySelector('body')
 const rightSide = document.querySelector('.right')
-const activitiesByDate = {}
+let activitiesByDate = {}
 const events = document.querySelector('.events')
 const eventDay = document.querySelector('.event-day')
 const eventDate = document.querySelector('.event-date')
@@ -132,6 +132,7 @@ function render(date) {
 // En funktion som ska göra så att informationen från ett event visas
 function showActivities(date) {
 	const activities = activitiesByDate[date]
+    console.log(activities)
 	let activitiesList = document.createElement('ul')
 	activitiesList.className = 'activities-list'
 
