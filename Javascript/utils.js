@@ -103,15 +103,12 @@ function render(date) {
     let firstWeek = getTargetWeek(state.year, state.month, 3)
     for (let i = 0; i < slots.length; i++) {
         slots[i].innerText = firstWeek-1 + i
-        // if (slots[0] = 0) {
-        //    firstWeek.innerText = '52'
-        // }
     }
 
     slots.forEach(element => {
         if (element.innerText == '0') {
             element.innerText = '52'
-        }
+        } 
     })
     
     calendarApp.innerHTML = `
@@ -177,9 +174,13 @@ function showActivities(date) {
 
 function showCalendar(prevOrNext) {
     let date = new Date(state.year, state.month + prevOrNext)
+    console.log('date')
+    console.log(date)
 
     state.year = date.getFullYear()
     state.month = date.getMonth()
+    
+    if (state.year >= 2023)
     render()
 }
 
