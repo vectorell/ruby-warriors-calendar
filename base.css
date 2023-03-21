@@ -36,7 +36,7 @@ body {
 
 .container {
     position: relative;
-    width: 1200px;
+    width: auto;
     min-height: 750px;
     margin: 0 auto;
     padding: 5px;
@@ -388,6 +388,10 @@ body {
 @media screen and (max-width: 299px) {
 .box{
     width: 90%;
+}
+
+.container{
+    width: auto;
 }
 .calendar .calendar__month-year__container {
     height: 75px;
