@@ -9,7 +9,7 @@
     --color-grey-disabled: #ebebeb;
 
     /* SKUGGOR */
-    --shadow-type-1: 1px 13px 24px 0px rgba(66, 68, 90, 1);
+    --shadow-type-1: 1px 13px 24px 0px rgb(112, 113, 121);
         /* -webkit-box-shadow: 1px 13px 24px 0px rgba(66, 68, 90, 1);
         -moz-box-shadow: 1px 13px 24px 0px rgba(66, 68, 90, 1); */
     
