@@ -113,7 +113,7 @@ function render(date) {
     current.forEach(element => {
         element.addEventListener('click', (event) => {
             const dateId = event.target.id
-            // console.log(dateId)
+            console.log(dateId)
             const index = dateId.indexOf(' ');
             const dateWithoutTime = dateId.substring(0, index);
                 
@@ -127,6 +127,18 @@ function render(date) {
             eventDay.innerText = dayOfWeek;
             // console.log(dayOfWeek)
             showActivities(dateWithoutTime)
+
+            // Markerar vald dag med bakgrundsfärg
+            current.forEach(element => {
+                let today = element.classList.contains('today')
+                if (today) {
+                    element.style.background = '#ebe0ee'
+                }
+                if (!(element.classList.contains('today'))) {
+                    element.style.background = 'white'
+                    event.target.style.background = '#FFEAEE'
+                }
+            })
         })
     })
 }
