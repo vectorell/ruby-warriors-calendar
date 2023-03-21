@@ -113,19 +113,18 @@ function render(date) {
     current.forEach(element => {
         element.addEventListener('click', (event) => {
             const dateId = event.target.id
-            console.log(dateId)
+            // console.log(dateId)
+            state.selectedDate = dateId
             const index = dateId.indexOf(' ');
             const dateWithoutTime = dateId.substring(0, index);
                 
             // Denna koden jämför datumet och tar fram rätt veckodag
             const dateObject = new Date(dateWithoutTime);
-            // console.log(dateObject)
             const options = { weekday: 'long' };
             const dayOfWeek = new Intl.DateTimeFormat('sv-SE', options).format(dateObject);
                 
             eventDate.innerText = dateWithoutTime
             eventDay.innerText = dayOfWeek;
-            // console.log(dayOfWeek)
             showActivities(dateWithoutTime)
 
             // Markerar vald dag med bakgrundsfärg
@@ -142,7 +141,6 @@ function render(date) {
         })
     })
 }
-        
 
 // En funktion som ska göra så att informationen från ett event visas
 function showActivities(date) {

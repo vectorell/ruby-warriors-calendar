@@ -40,12 +40,3 @@ yearDisplay.addEventListener('click', (event) => {
     state.year = yearDisplay.value
     showCalendar(0)
 })
-
-
-
-console.log(current)
-current.forEach(element => {
-    element.addEventListener('click', () => {
-        console.log('hej')
-    })
-})
