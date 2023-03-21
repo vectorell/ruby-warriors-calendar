@@ -18,19 +18,19 @@
   <div class="container">
     
     <div class="left">
-    <!-- Container: Yttersta huvud-containern som allting ligger i -->
+    <!-- Container: Yttersta huvud-containern som allting ligger i --><button data-modal-target="#modal" class="week-view-btn">Veckovy</button>
     <div class="calendar">
-      <div class="weeknumber-container">
         <p class="slot-week">v.</p>
+      <div class="weeknumber-container">
         <p class="slot">1</p>
         <p class="slot">2</p>
         <p class="slot">3</p>
         <p class="slot">4</p>
         <p class="slot">5</p>
         <p class="slot">6</p>
-      </div>
+        </div>
 
-      <button data-modal-target="#modal" class="week-view-btn">Veckovy</button>
+      
       <div class="modal" id="modal">
        <div class="modal-header">
     
@@ -46,38 +46,75 @@
          <div class="box">FREDAG</div>
          <div class="box">LÖRDAG</div>
          <div class="box">SÖNDAG</div>
-            </div>
-         
-       </div>
-      </div>
+        </div>
+        
+    </div>
+</div>
       <div id="overlay"></div>
+      
+      <!-- Container: Månad och år -->
+      <div class="calendar__month-year__container">
+          <button class="left-arrow">     
+              <img src="image/left-arrow.png" alt="left-arrow" style="width:20px; height:20px;"></button>
+              <h1 class="month-display">MÅNAD</h1>
+            
+              
+              <input class="year-display" type="number" min="2023">
+              
+              
+              <button class="right-arrow">
+                  <img src="image/right-arrow.png" alt="right-arrow" style="width:20px;height:20px;" ></button>
+            </div>
+            
+            <!-- Container: veckodagarnas titlar -->
+            <div class="calendar__weekdaytitles__container">
+                
+                <!-- MÅNDAG -->
+                <div class="weekday__container title-monday"> 
+                    <span class="box-short">M</span>
+                    <span class="weekday-paragraph"> MÅNDAG </span> 
+                </div>
 
-        <!-- Container: Månad och år -->
-        <div class="calendar__month-year__container">
-        <button class="left-arrow">     
-            <img src="image/left-arrow.png" alt="left-arrow" style="width:20px; height:20px;"></button>
-            <h1 class="month-display">MÅNAD</h1>
+                <!-- TISDAG -->
+                <div class="weekday__container title-tuesday"> 
+                    <span class="box-short">T</span>
+                    <span class="weekday-paragraph"> TISDAG </span> 
+                </div>
 
+                <!-- ONSDAG -->
+                <div class="weekday__container title-wednesday"> 
+                    <span class="box-short">O</span>
+                    <span class="weekday-paragraph"> ONSDAG </span> 
+                </div>
 
-                <input class="year-display" type="number" min="2023">
+                <!-- TORSDAG -->
+                <div class="weekday__container title-thursday"> 
+                    <span class="box-short">T</span>
+                    <span class="weekday-paragraph"> TORSDAG </span> 
+                </div>
 
+                <!-- FREDAG -->
+                <div class="weekday__container title-friday"> 
+                    <span class="box-short">F</span>
+                    <span class="weekday-paragraph"> FREDAG </span> 
+                </div>
 
-            <button class="right-arrow">
-                <img src="image/right-arrow.png" alt="right-arrow" style="width:20px;height:20px;" ></button>
-        </div>
+                <!-- LÖRDAG -->
+                <div class="weekday__container title-saturday"> 
+                    <span class="box-short">L</span>
+                    <span class="weekday-paragraph"> LÖRDAG </span> 
+                </div>
 
-        <!-- Container: veckodagarnas titlar -->
-        <div class="calendar__weekdaytitles__container">
-            <div class="weekday__container title-monday"> <span class="weekday-paragraph"> MÅNDAG </span> </div>
-            <div class="weekday__container title-tuesday"> <span class="weekday-paragraph"> TISDAG </span> </div>
-            <div class="weekday__container title-wednesday"> <span class="weekday-paragraph"> ONSDAG </span> </div>
-            <div class="weekday__container title-thursday"> <span class="weekday-paragraph"> TORSDAG </span> </div>
-            <div class="weekday__container title-friday"> <span class="weekday-paragraph"> FREDAG </span> </div>
-            <div class="weekday__container title-saturday"> <span class="weekday-paragraph"> LÖRDAG </span> </div>
-            <div class="weekday__container title-sunday"> <span class="weekday-paragraph"> SÖNDAG </span> </div>
-        </div>
+                <!-- SÖNDAG -->
+                <div class="weekday__container title-sunday"> 
+                    <span class="box-short">S</span>
+                    <span class="weekday-paragraph"> SÖNDAG </span> 
+                </div>
+            </div>
 
-        <div class="date-boxes"></div>    
+      <div class="date-boxes">   
+        
+    </div>    
         
      
     <!-- <button class="add-event-btn">Lägg till händelse</button> -->
