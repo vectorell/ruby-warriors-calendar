@@ -2,7 +2,7 @@
 const buttonLeftArrow = document.querySelector('.left-arrow')
 const buttonRightArrow = document.querySelector('.right-arrow')
 const yearDropdown = document.getElementById('#year-dropdown');
-function white() {yearDisplay.style.background = 'white'}
+function white() { yearDisplay.style.background = 'white' }
 yearDisplay.style.transition = '0s'
 
 
@@ -20,14 +20,6 @@ buttonLeftArrow.addEventListener('click', () => {
 buttonRightArrow.addEventListener('click', () => {
     showCalendar(1);
 })
-
-
-// yearDropdown.addEventListener('change', function() {
-//   const selectedYear = yearDropdown.value;
-//   // Uppdatera kalendern baserat på det valda året
-
-// });
-
 
 yearDisplay.addEventListener('keydown', (event) => {
 
@@ -47,5 +39,4 @@ yearDisplay.addEventListener('keydown', (event) => {
 yearDisplay.addEventListener('click', (event) => {
     state.year = yearDisplay.value
     showCalendar(0)
-    console.log(Event)
 })
