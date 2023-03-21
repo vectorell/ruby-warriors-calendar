@@ -51,7 +51,9 @@ function dateBoxes(year, month) {
     // Föregående månads dagar som ska visas i kalendern
     for (let i = 1; i < firstDayInMonth; i++) {
         let previousMonthDate = daysInPreviousMonth - firstDayInMonth + i
-        let key = new Date(state.year, state.month -1, previousMonthDate).toLocaleString()
+        let key = new Date(state.year, state.month -1, previousMonthDate).toISOString().replaceAll('T', ' ').replaceAll('.', ':').slice(0, 19)
+        console.log('key')
+        console.log(key.replaceAll('/', '-'))
         dates.push({key: key, date: previousMonthDate, monthClass: 'prev'})
     }
 
@@ -59,7 +61,7 @@ function dateBoxes(year, month) {
     let today = new Date()
     for (let i = 1; i <= daysInMonth; i++) {
 
-        let key = new Date(state.year, state.month, i).toLocaleString();
+        let key = new Date(state.year, state.month, i+1).toISOString().replaceAll('T', ' ').replaceAll('.', ':').slice(0, 19)
         if (i === today.getDate() && state.month === today.getMonth() && state.year === today.getFullYear()) {
             dates.push({key: key, date: i, monthClass: 'current', todayClass: 'today'})
         } else {
@@ -72,10 +74,13 @@ function dateBoxes(year, month) {
     if (dates.length < gridsize) {
         let count = gridsize - dates.length
         for (let i = 1; i <= count; i++) {
-            let key = new Date(state.year, state.month + 1, i).toLocaleString()
+            let key = new Date(state.year, state.month + 1, i).toISOString().replaceAll('T', ' ').replaceAll('.', ':').slice(0, 19)
+            console.log('key')
+            console.log(key)
             dates.push({key: key, date: i, monthClass:'next'})
         }
     }
+
     return dates
 }
 
@@ -112,8 +117,8 @@ function render(date) {
     })
     
     calendarApp.innerHTML = `
-        ${ dateBoxes(state.year, state.month).map(date => `<div id="${date.key}" class="${date.monthClass} ${date.todayClass ? date.todayClass : ''}">${date.date}</div>`).join('') }`
-
+    ${ dateBoxes(state.year, state.month).map(date => `<div id="${date.key}" class="${date.monthClass} ${date.todayClass ? date.todayClass : ''}">${date.date}</div>`).join('') }`
+    
         // Eventlyssnare för varje skapat datum
         let current = document.querySelectorAll('.current')
         current.forEach(element => {

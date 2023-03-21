@@ -21,14 +21,6 @@ buttonRightArrow.addEventListener('click', () => {
     showCalendar(1);
 })
 
-
-// yearDropdown.addEventListener('change', function() {
-//   const selectedYear = yearDropdown.value;
-//   // Uppdatera kalendern baserat på det valda året
-
-// });
-
-
 yearDisplay.addEventListener('keydown', (event) => {
 
     if (event.key == "Enter" && yearDisplay.value >= 2023) {
