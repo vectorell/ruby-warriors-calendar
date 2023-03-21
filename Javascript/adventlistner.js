@@ -2,7 +2,7 @@
 const buttonLeftArrow = document.querySelector('.left-arrow')
 const buttonRightArrow = document.querySelector('.right-arrow')
 const yearDropdown = document.getElementById('#year-dropdown');
-function white() {yearDisplay.style.background = 'white'}
+function white() { yearDisplay.style.background = 'white' }
 yearDisplay.style.transition = '0s'
 
 
@@ -39,5 +39,4 @@ yearDisplay.addEventListener('keydown', (event) => {
 yearDisplay.addEventListener('click', (event) => {
     state.year = yearDisplay.value
     showCalendar(0)
-    console.log(Event)
 })

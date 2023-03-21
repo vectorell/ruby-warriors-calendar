@@ -3,14 +3,32 @@ let daysInSelectedMonth
 const dateContainer = document.querySelectorAll('.date__container')
 const dateContainerDayNumber = document.querySelectorAll('.weekday-number-text')
 const monthDisplay = document.querySelector('.month-display')
+let current = document.querySelectorAll('.current')
+const weekday = document.querySelector('.calendar__weekdaytitles__container')
+const button = document.querySelector('.add-event-btn')
+const body = document.querySelector('body')
+const rightSide = document.querySelector('.right')
+const activitiesByDate = {}
+const events = document.querySelector('.events')
+const eventDay = document.querySelector('.event-day')
+const eventDate = document.querySelector('.event-date')
+const container = document.querySelector('.container')
+const yearDisplay = document.querySelector('.year-display')
 
+let months = ['Januari', 'Februari', 'Mars', 'April', 'Maj', 'Juni', 'Juli', 'Augusti', 'September', 'Oktober', 'November', 'December']
+let weekdays = ['Måndag', 'Tisdag', 'Onsdag', 'Torsdag', 'Fredag', 'Lördag', 'Söndag']
+let gridsize = 42
+
+let state = {
+    month: new Date().getMonth(),
+    year: new Date().getFullYear()
+}
 
 /************** INHÄMTNING AV DAGENS DATUM + TID *******************/
 // Hela dagens datum som sträng
 let currentFullDateString = Date()
-console.log(currentFullDateString)
 
-	// Hela dagens datum omgjort till en array
+// Hela dagens datum omgjort till en array
 let currentFullDateArray = currentFullDateString.split(' ')
 
 // Dagens klockslag
@@ -28,32 +46,18 @@ let today = {
     todaySecond: currentTime[2]
 }
 
-let months = ['Januari', 'Februari', 'Mars', 'April', 'Maj', 'Juni', 'Juli', 'Augusti', 'September', 'Oktober', 'November', 'December']
-let weekdays = ['Måndag', 'Tisdag', 'Onsdag', 'Torsdag', 'Fredag', 'Lördag', 'Söndag']
-let gridsize = 42
-
-let state = {
-    month: new Date().getMonth(),
-    year: new Date().getFullYear()
-}
 
 function dateBoxes(year, month) {
     let dates = []
-
     let firstDayInMonth = new Date(year, month).getDay()
-
     firstDayInMonth = firstDayInMonth === 0 ? 7 : firstDayInMonth
-
     let daysInMonth = new Date(year, month + 1, 0).getDate()
-
     let daysInPreviousMonth = new Date(year, month, 0).getDate()
 
     // Föregående månads dagar som ska visas i kalendern
     for (let i = 1; i < firstDayInMonth; i++) {
         let previousMonthDate = daysInPreviousMonth - firstDayInMonth + i
-        let key = new Date(state.year, state.month -1, previousMonthDate).toISOString().replaceAll('T', ' ').replaceAll('.', ':').slice(0, 19)
-        console.log('key')
-        console.log(key.replaceAll('/', '-'))
+        let key = standarizeDateFormat(new Date(state.year, state.month -1, previousMonthDate).toISOString())
         dates.push({key: key, date: previousMonthDate, monthClass: 'prev'})
     }
 
@@ -61,45 +65,30 @@ function dateBoxes(year, month) {
     let today = new Date()
     for (let i = 1; i <= daysInMonth; i++) {
 
-        let key = new Date(state.year, state.month, i+1).toISOString().replaceAll('T', ' ').replaceAll('.', ':').slice(0, 19)
+        let key = standarizeDateFormat(new Date(state.year, state.month, i+1).toISOString())
         if (i === today.getDate() && state.month === today.getMonth() && state.year === today.getFullYear()) {
             dates.push({key: key, date: i, monthClass: 'current', todayClass: 'today'})
         } else {
             dates.push({key: key, date: i, monthClass: 'current'})
         }
     }
-
     
     // Kolla om det finns plats över i griden, visa dagar för kommande månad
     if (dates.length < gridsize) {
         let count = gridsize - dates.length
         for (let i = 1; i <= count; i++) {
-            let key = new Date(state.year, state.month + 1, i).toISOString().replaceAll('T', ' ').replaceAll('.', ':').slice(0, 19)
-            console.log('key')
-            console.log(key)
+            let key = standarizeDateFormat(new Date(state.year, state.month + 1, i).toISOString()) 
             dates.push({key: key, date: i, monthClass:'next'})
         }
     }
-
     return dates
 }
 
+// FUNKTION: motverka snestreck och konstiga format
+function standarizeDateFormat(key) {
+    return key.replaceAll('T', ' ').replaceAll('.', ':').slice(0, 19)
+}
 
-let current = document.querySelectorAll('.current')
-const weekday = document.querySelector('.calendar__weekdaytitles__container')
-const button = document.querySelector('.add-event-btn')
-const body = document.querySelector('body')
-const rightSide = document.querySelector('.right')
-const activitiesByDate = {}
-const events = document.querySelector('.events')
-const eventDay = document.querySelector('.event-day')
-const eventDate = document.querySelector('.event-date')
-const container = document.querySelector('.container')
-
-
-
-
-const yearDisplay = document.querySelector('.year-display');
 function render(date) {
     let calendarApp = document.querySelector('.date-boxes')
     monthDisplay.innerText = months[state.month]
@@ -109,7 +98,7 @@ function render(date) {
     for (let i = 0; i < slots.length; i++) {
         slots[i].innerText = firstWeek-1 + i
     }
-
+    
     slots.forEach(element => {
         if (element.innerText == '0') {
             element.innerText = '52'
@@ -119,34 +108,29 @@ function render(date) {
     calendarApp.innerHTML = `
     ${ dateBoxes(state.year, state.month).map(date => `<div id="${date.key}" class="${date.monthClass} ${date.todayClass ? date.todayClass : ''}">${date.date}</div>`).join('') }`
     
-        // Eventlyssnare för varje skapat datum
-        let current = document.querySelectorAll('.current')
-        current.forEach(element => {
-            element.addEventListener('click', (event) => {
-                console.log('klick')
-                const dateId = event.target.id
-                console.log(dateId)
-                const index = dateId.indexOf(' ');
-                const dateWithoutTime = dateId.substring(0, index);
-                let date = new Date().getDay(dateWithoutTime)
-
-                // console.log(date);
-                    
-                    // Denna koden jämför datumet och tar fram rätt veckodag
-                const dateObject = new Date(dateWithoutTime);
-                // console.log(dateObject)
-                const options = { weekday: 'long' };
-                const dayOfWeek = new Intl.DateTimeFormat('sv-SE', options).format(dateObject);
-
-                eventDate.innerText = dateWithoutTime
-                eventDay.innerText = dayOfWeek;
-                // console.log(dayOfWeek)
-                showActivities(dateWithoutTime)
-                });
+    // Eventlyssnare för varje skapat datum
+    let current = document.querySelectorAll('.current')
+    current.forEach(element => {
+        element.addEventListener('click', (event) => {
+            const dateId = event.target.id
+            // console.log(dateId)
+            const index = dateId.indexOf(' ');
+            const dateWithoutTime = dateId.substring(0, index);
                 
-            })
+            // Denna koden jämför datumet och tar fram rätt veckodag
+            const dateObject = new Date(dateWithoutTime);
+            // console.log(dateObject)
+            const options = { weekday: 'long' };
+            const dayOfWeek = new Intl.DateTimeFormat('sv-SE', options).format(dateObject);
+                
+            eventDate.innerText = dateWithoutTime
+            eventDay.innerText = dayOfWeek;
+            // console.log(dayOfWeek)
+            showActivities(dateWithoutTime)
+        })
+    })
 }
-
+        
 
 // En funktion som ska göra så att informationen från ett event visas
 function showActivities(date) {
@@ -167,71 +151,58 @@ function showActivities(date) {
 			Tid: ${activities[i].time} 
 			Kom ihåg: ${activities[i].event}`;
 			activitiesList.append(listItem);
-			
 		}
 	}
-
 	events.innerHTML = ''
 	events.append(activitiesList)
-	
-	console.log(activitiesList)
 }
 
+// FUNKTION: rendera på nytt vid månads/årsbyte
 function showCalendar(prevOrNext) {
     let date = new Date(state.year, state.month + prevOrNext)
-    console.log('date')
-    console.log(date)
-
     state.year = date.getFullYear()
     state.month = date.getMonth()
-    
-    if (state.year >= 2023)
     render()
 }
 
-showCalendar(0)
-
 
 // popup
-
 const openModalButtons = document.querySelectorAll('[data-modal-target]')
 const closeModalButtons = document.querySelectorAll('[data-close-button]')
 const overlay = document.getElementById('overlay')
 
 openModalButtons.forEach(button => {
-  button.addEventListener('click', () => {
-    const modal = document.querySelector(button.dataset.modalTarget)
-    openModal(modal)
-  })
+    button.addEventListener('click', () => {
+        const modal = document.querySelector(button.dataset.modalTarget)
+        openModal(modal)
+    })
 })
 
 overlay.addEventListener('click', () => {
-  const modals = document.querySelectorAll('.modal.active')
-  modals.forEach(modal => {
-    closeModal(modal)
-  })
+    const modals = document.querySelectorAll('.modal.active')
+    modals.forEach(modal => {
+        closeModal(modal)
+    })
 })
 
 closeModalButtons.forEach(button => {
-  button.addEventListener('click', () => {
-    const modal = button.closest('#modal')
-    closeModal(modal)
-  })
+    button.addEventListener('click', () => {
+        const modal = button.closest('#modal')
+        closeModal(modal)
+    })
 })
 
 function openModal(modal) {
-  if (modal == null) return
-  modal.classList.add('active')
-  overlay.classList.add('active')
+    if (modal == null) return
+    modal.classList.add('active')
+    overlay.classList.add('active')
 }
 
 function closeModal(modal) {
-  if (modal == null) return
-  modal.classList.remove('active')
-  overlay.classList.remove('active')
+    if (modal == null) return
+    modal.classList.remove('active')
+    overlay.classList.remove('active')
 }
-
-
 
 
 function getCurrentWeek(year, month, day) {
@@ -247,7 +218,6 @@ function getCurrentWeek(year, month, day) {
 
 
 function getTargetWeek(year, month, day) {
-    
     // 1. Hämta skillnad mellan nuvarande vecka och vald vecka
     let currentDate = new Date();
     let currentYear = currentDate.getFullYear()
@@ -258,18 +228,14 @@ function getTargetWeek(year, month, day) {
         (24 * 60 * 60 * 1000));
     let targetWeek = Math.ceil(days / 7);
 
-
     // 2. Räkna ut vald vecka mha nuvarande + vald vecka
     let result = Math.abs(getCurrentWeek() + targetWeek)  
     let yearDifference = Math.abs(currentYear - targetYear)
     
-    if (result > 52) {
-        result = result - yearDifference*52
-    }
-    console.log('result')
-    console.log(Math.abs(result))
+    if (result > 52) { result = result - yearDifference*52 }
     return result
 }
 
 
-getTargetWeek(2021, 02, 22)
+/** BEHÖVS FÖR START */
+showCalendar(0)
