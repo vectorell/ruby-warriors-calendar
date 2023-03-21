@@ -40,7 +40,10 @@ li {
 	flex-direction: column;
 	gap: 1em;
 	margin: 0;
-	font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+	font-family: Franklin Gothic Medium "Arial Narrow Bold" Arial sans-serif;
+	font-size: 19px;
+	/*
+	impact, Haettenschweiler, 'Arial Narrow bold', sans-serif;*/
 }
 
 ::-webkit-input-placeholder {

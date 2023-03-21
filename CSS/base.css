@@ -401,11 +401,11 @@ body {
 }
 
 @media screen and (max-width: 300px) {
+
 .date-boxes-2{
     display: flex;
     flex-flow: wrap;
     justify-content: space-around;
-
 }
 .box{
     width: 100%;
@@ -420,6 +420,7 @@ body {
     height: 40px;
     font-size: 0.8rem;
         }
+        
 .calendar .days .day.active,
 .calendar .days .day.today {
     font-size: 1rem;
