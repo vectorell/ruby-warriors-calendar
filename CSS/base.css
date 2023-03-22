@@ -5,33 +5,18 @@
 }
 
 body {
-    /* height: 100vh; */
-    /* width: 100vw; */
-    /* display: flex;
-    justify-content: center;
-    align-items: center; */
     font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
 }
 
 /* Yttersta kalender-containern */
 .calendar {
-    /* position: relative; */
     color: #000;
     background-color: #ffffff;
-    /* display: grid; */
-    /* max-width: 40em; */
-    /* grid-template-columns: repeat(7, var(--column-size));
-    grid-template-rows: var(--row-size-half) repeat(6, var(--row-size)) ; */
     border: none;
     border-radius: 0.5em;
-    /* width: fit-content; */
-    /* padding: 2em; */
-    /* box-shadow: var(--shadow-type-1); */
     height: fit-content;
-    /* margin: 0px; */
-    /* padding: 5%; */
     position: relative;
-    
+    padding-bottom: 1em;
 }
 
 .head-events {
@@ -42,14 +27,9 @@ body {
 .container {
     margin-left: auto;
     margin-right: auto;
-    /* position: relative; */
-    /* width: 1200px; */
-    /* min-height: 750px; */
-    /* margin: 0 auto; */
-    /* padding: 5px; */
     padding: 2em;
     justify-content: center;
-    max-width: 80%;
+    max-width: 80em;
     color: #fff;
     display: flex;
     box-shadow: var(--shadow-type-1);
@@ -57,6 +37,7 @@ body {
     background-color: #652c76;
     position: relative;
 } 
+
 .left {
     width: 70%;
 }
@@ -76,27 +57,24 @@ body {
     position: absolute;
     bottom: 3em;
     right: 1em;
-    
 }
+
 .week-view-btn:hover {
     opacity: 1;
 }
 
 .weeknumber-container {
-    /* position: absolute;
-    left: 0.5em; */
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    /* gap: 5em; */
-    /* top: 13em;  */
     padding-right: 0.2em;
     padding-left: 0.2em;
     background:linear-gradient(#ffffff, #b7bab792, #ffffff) ;
     color: #652c76;
     border-radius: 0em 0em 0em 0.5em;
 }
+
 .weeknumber-container > * {
     height: 16.7%;
     display: flex;
@@ -106,22 +84,15 @@ body {
     text-align: center;
 }
 
-
-
 .slot-week {
     position: absolute;
     top: 9.5em;
     left: 0.5em;
 }
+
 .dates {
     display: flex;
 }
-
-
- /* .weeknumber-container :nth-child(4){
-    position: relative;
-    top: 1em; 
-} */
 
 /* Container för månad och år ("headern") */
 .calendar__month-year__container {
@@ -134,6 +105,7 @@ body {
     grid-column-end: span 7;
     flex-wrap: wrap;
 }
+
 .year-display {
     font-weight: 600;
     text-align: center;
@@ -152,6 +124,7 @@ body {
     transform: scale(105%);
     border: 1px solid gray;
 }
+
 .year-display:focus {
     outline: none;
     border: 1px solid gray;
@@ -185,10 +158,6 @@ h1 {
 
 /* Containrar för veckodagarnas text */
 .calendar__weekdaytitles__container {
-    /* display: grid; */
-    /* grid-column-start: 1; */
-    /* grid-column-end: span 7; */
-    /* grid-template-columns: repeat(7, var(--column-size)); */
     display: flex;
     justify-content: center;
     text-align: center;
@@ -215,20 +184,24 @@ h1 {
     height: auto;
     background-color: #ffffff;
     display: flex;
-    /* grid-template-columns: repeat(7, var(--column-size));
-    grid-template-rows: repeat(8, var(--row-size)) ; */
     flex-direction: row;
     justify-content: space-around;
-    /* flex-flow: wrap; */
 }
 .box{
     align-items: center;
     width: 20%;
-    /* height: 400px; */
     background-color: rgb(191, 148, 224);
-    /* margin: 7px; */
     box-sizing: border-box;
     font-size: 17px;
+    display: block;
+}
+.box-small {
+    align-items: center;
+    width: 20%;
+    background-color: rgb(191, 148, 224);
+    box-sizing: border-box;
+    font-size: 17px;
+    display: none;
 }
 
 .current:hover {
@@ -250,7 +223,6 @@ h1 {
 /* datumboxar för föregående och nästkommande månad */
 .prev, .next {
     background-color: #dadadac9;
-    /* border: 1px solid white; */
     color: gray;
     padding-top: 0.2em;
     padding-left: 0.2em;
@@ -270,7 +242,6 @@ h1 {
     border: 1px solid #7676768f;
     font-weight: 600;
     font-size: 1.1em;
-    /* border: 1px solid var(--color-grey); */
 }
 
 .date-blank {
@@ -287,30 +258,23 @@ h1 {
 
 /* månadstitel */
 .month-display {
-    /* width:5em; */
     font-size: 2em;
     text-align: center;
 }
 
 .right {
-    /* position: relative; */
     width: 30%;
     min-height: 100%;
-    /* padding: 20px 0; */
     }
     
 .right .today-date {
     width: 100%;
-    /* height: 50px; */
     display: flex;
     flex-wrap: wrap;
     padding-right: 0.3em;
     padding-left: 0.3em;
-    /* gap: 10px; */
     align-items: center;
     justify-content: space-between;
-    /* margin-top: 30px;
-    margin-bottom: 20px; */
     text-transform: capitalize;
     }
 
@@ -327,8 +291,6 @@ h1 {
 
 .events {
     width: 100%;
-    /* height: 100%; */
-    /* max-height: 600px; */
     overflow-x: hidden;
     overflow-y: auto;
     display: flex;
@@ -407,79 +369,6 @@ h1 {
     border-left: 1px solid var(--primary-clr);
     border-radius: 0;
   }
-/* @media screen and (max-width: 1000px) {
-body {
-    align-items: flex-start;
-    justify-content: flex-start;
-        }
-.container {
-    min-height: 100vh;
-    flex-direction: column;
-    border-radius: 0;
-        }
-.container .left {
-    width: 100%;
-    height: 100%;
-    padding: 20px 0;
-        }
-.container .right {
-    width: 100%;
-    height: 100%;
-    padding: 20px 0;
-        }
-.calendar::before,
-.calendar::after {
-    top: 100%;
-    left: 50%;
-    width: 97%;
-    height: 12px;
-    border-radius: 0 0 5px 5px;
-    transform: translateX(-50%);
-        }
-.calendar::before {
-        width: 94%;
-        top: calc(100% + 12px);
-        }
-.events {
-        padding-bottom: 340px;
-        }
-.add-event-wrapper {
-        bottom: 100px;
-        }
-.box{
-    width: 40%;
-}
-} */
-
-/* @media screen and (max-width: 300px) {
-.date-boxes-2{
-    display: flex;
-    flex-flow: wrap;
-    justify-content: space-around;
-}
-.box{
-    width: 100%;
-}
-.calendar .calendar__month-year__container {
-    height: 75px;
-        }
-.calendar .weekday__container {
-    height: 50px;
-    }
-.calendar .days .day {
-    height: 40px;
-    font-size: 0.8rem;
-        }
-        
-.calendar .days .day.active,
-.calendar .days .day.today {
-    font-size: 1rem;
-        }
-.right .today-date {
-    padding: 20px;
-        }
-} */
-
 
 /* popup */
 
@@ -561,12 +450,9 @@ body {
     display: none;
 }
 
-/* 900px */
 @media (max-width: 900px) {
     body {
         background-color: #652c76;
-        /* width: 100vw;
-        height: 100vh; */
     }
 
     .container {
@@ -583,10 +469,8 @@ body {
     }
 
     .right {
-         
         height: 100%;
         Width: 100%;
-      
     }
     
     .left {
@@ -597,10 +481,6 @@ body {
     .calendar {
         max-width: unset;
         height: 100%;
-    }
-
-    .date-boxes {
-        /* height: 100%; */
     }
 
     .add-event-btn{
@@ -639,25 +519,15 @@ body {
         left: 0.5em;
     }
 
-    /* .weeknumber-container {
-        position: absolute;
-        left: 0.5em;
-        display: flex;
-        flex-direction: column;
-        gap: 5em;
-        top: 25%; 
-    } */
-}
-
-/* @media (max-width: 550px) {
-    .weeknumber-container {
-       font-size: 12px;
-        left: 0em;
-        top: 25%; 
-        gap: 7em;
-       
+    .year-display {
+        margin: unset; 
     }
-} */
 
+    .box {
+        display: none;
+    }
 
-
+    .box-small {
+        display: block;
+    }
+}
