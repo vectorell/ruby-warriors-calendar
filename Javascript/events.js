@@ -1,9 +1,9 @@
+
+
 window.addEventListener('load', function() {
 	eventDate.innerText = today.todayDate + ' ' + today.todayMonth
 	eventDay.innerText = today.todayWeekday
 })
-
-
 
 
 button.addEventListener('click', () => {
@@ -80,7 +80,13 @@ button.addEventListener('click', () => {
 			event: eventValue
 		})
 		console.log(activitiesByDate)
-	 showActivities(dateValue)
+		const confirm = document.createElement('h3')
+		confirm.innerText = 'Du la till ett event'
+		confirm.classList.add('confirm-text')
+		content.contentForm.append(confirm)
+		function remove() {confirm.style.display = 'none'; console.log('funktionen')}
+		setTimeout(remove, 3000)
+	 //showActivities(dateValue)
 	})
 
 	content.buttonCloseOverlay.addEventListener('click', (event) => {

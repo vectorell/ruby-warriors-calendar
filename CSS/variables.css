@@ -1,15 +1,15 @@
 :root {
     /* STORLEKAR */
-    --column-size: 5em;
-    --row-size: 5em;
-    --row-size-half:2.5em;
+    --column-size: 14%;
+    --row-size: 14%;
+    --row-size-half:6.25%;
 
     /* FÄRGER */
     --color-grey: #868686;
     --color-grey-disabled: #ebebeb;
 
     /* SKUGGOR */
-    --shadow-type-1: 1px 13px 24px 0px rgba(66, 68, 90, 1);
+    --shadow-type-1: 1px 13px 24px 0px rgb(112, 113, 121);
         /* -webkit-box-shadow: 1px 13px 24px 0px rgba(66, 68, 90, 1);
         -moz-box-shadow: 1px 13px 24px 0px rgba(66, 68, 90, 1); */
     
